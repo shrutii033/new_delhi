@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Delhi, A Living Heritage</title>
+  <meta name="description" content="Explore the stories, culture and neighbourhoods of Delhi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      background-color: #1b1411;
+    }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #1b1411;
+      color: #f0e6da;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+    .heritage-page {
+      background: #1b1411;
+      color: #f0e6da;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .heritage-page h1,
+    .heritage-page h2,
+    .heritage-page h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+    .heritage-page a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    .site-header {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      padding: 0 6.3%;
+      gap: 30px;
+      background: #1b1411;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid #3a2b24;
+      backdrop-filter: blur(8px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f1e6da;
+      flex-shrink: 0;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #e77c36;
+      color: #f08b43;
+      display: grid;
+      place-items: center;
+      font-family: Georgia, serif;
+      font-size: 26px;
+      line-height: 1;
+      position: relative;
+    }
+    .brand-mark span {
+      position: absolute;
+      font: 10px sans-serif;
+      right: 3px;
+      top: 3px;
+    }
+    .brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1;
+    }
+    .brand-name span {
+      display: block;
+      font-size: 7px;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      margin-top: 5px;
+      color: #b9a294;
+    }
+    .site-header nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex: 1;
+    }
+    .site-header nav a {
+      font-size: 12px;
+      color: #e2d5c8;
+      transition: color 0.2s;
+    }
+    .site-header nav a:hover {
+      color: #ffad69;
+    }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #f4e6d8;
+      border: 1px solid #63442f;
+      padding: 12px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .header-cta:hover {
+      background: #e67a34;
+      border-color: #e67a34;
+      color: #ffffff;
+    }
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: 0;
+      color: #f1e6da;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    /* Hero */
+    .hero {
+      height: min(690px, calc(100vh - 76px));
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.pexels.com/photos/7750492/pexels-photo-7750492.jpeg') center 48% / cover no-repeat;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(25,18,15,0.96), rgba(28,20,16,0.82) 32%, rgba(30,20,17,0.3) 72%, rgba(30,20,17,0.16)), linear-gradient(0deg, rgba(27,20,17,0.82), transparent 30%);
+    }
+    .hero-inner {
+      position: relative;
+      width: min(1200px, 87.4%);
+      margin: auto;
+      padding-top: 105px;
+    }
+    .hero-eyebrow, .eyebrow {
+      color: #ee914d;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .tiny-star {
+      font-size: 19px;
+    }
+    .hero h1 {
+      font-size: clamp(64px, 7.3vw, 102px);
+      line-height: 0.99;
+      margin: 25px 0 23px;
+      color: #f2e8dc;
+    }
+    .hero h1 em,
+    .intro-section h2 em,
+    .culture-heading h2 em,
+    .closing h2 em {
+      color: #ef8a42;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-inner > p {
+      color: #d1c0b2;
+      font-size: 15px;
+      max-width: 365px;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 32px;
+    }
+    .button-primary {
+      background: #e77c36;
+      color: #24150e;
+      padding: 16px 21px;
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .button-primary:hover {
+      background: #f2914c;
+      transform: translateY(-1px);
+    }
+    .button-link {
+      color: #d1c0b2;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #735745;
+      padding: 12px 0;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .button-link:hover {
+      color: #ffb46e;
+      border-color: #ffb46e;
+    }
+    .hero-bottom {
+      position: absolute;
+      bottom: 29px;
+      left: 6.3%;
+      right: 6.3%;
+      display: flex;
+      justify-content: space-between;
+      color: #d3c1b2;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+    }
+    .hero-bottom span:first-child {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .hero-side {
+      position: absolute;
+      right: 26px;
+      top: 45%;
+      writing-mode: vertical-rl;
+      color: #d3c1b2;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+    }
+
+    /* Common Section Wrap */
+    .section-wrap {
+      width: min(1200px, 87.4%);
+      margin: auto;
+    }
+
+    /* Intro */
+    .intro-section {
+      background: #211916;
+      color: #f0e6da;
+      padding: 112px 0;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 0.8fr;
+      gap: 55px;
+      align-items: start;
+    }
+    .eyebrow span {
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #cb7950;
+    }
+    .intro-small {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.8;
+      margin-top: 26px;
+      color: #c2b1a3;
+    }
+    .intro-section h2,
+    .culture-heading h2,
+    .map-heading h2,
+    .closing h2 {
+      font-size: clamp(48px, 5vw, 70px);
+      line-height: 1.04;
+      margin: 0 0 25px;
+      color: #f2e8dc;
+    }
+    .intro-grid > div:nth-child(2) > p {
+      max-width: 540px;
+      font-size: 14px;
+      line-height: 1.9;
+      color: #c2b1a3;
+      margin-bottom: 15px;
+    }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      color: #f0924d;
+      border-bottom: 1px solid #805237;
+      padding: 12px 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-top: 10px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .text-link:hover {
+      color: #ffad69;
+      border-color: #ffad69;
+    }
+    .intro-seal {
+      width: 155px;
+      height: 155px;
+      margin: 46px auto 0;
+      border: 1px solid #795039;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-12deg);
+      color: #ef8a42;
+      text-align: center;
+    }
+    .intro-seal div {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      line-height: 1;
+    }
+    .intro-seal div span {
+      font-size: 20px;
+    }
+    .intro-seal small {
+      font-size: 7px;
+      letter-spacing: 0.15em;
+      margin-top: 10px;
+    }
+
+    /* Culture Section */
+    .culture-section {
+      padding: 110px 0 120px;
+      background: #1b1411;
+    }
+    .culture-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 42px;
+    }
+    .culture-heading h2 {
+      margin: 24px 0 0;
+    }
+    .culture-heading > p {
+      max-width: 290px;
+      color: #b9a89a;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .story-card {
+      cursor: pointer;
+    }
+    .story-image {
+      height: 285px;
+      position: relative;
+      overflow: hidden;
+      background: #2a1f19;
+    }
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.67) saturate(0.78);
+      transition: transform 0.5s ease;
+    }
+    .story-card:hover img {
+      transform: scale(1.04);
+    }
+    .story-image > span {
+      position: absolute;
+      top: 16px;
+      left: 17px;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: #f1e6da;
+      z-index: 2;
+    }
+    .story-image > svg {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      color: #f1e6da;
+      z-index: 2;
+    }
+    .story-category {
+      color: #ef914d;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      margin-top: 23px;
+    }
+    .story-card h3 {
+      font-size: 27px;
+      margin: 9px 0;
+      color: #f2e8dc;
+    }
+    .story-card p {
+      color: #b9a89a;
+      font-size: 12px;
+      line-height: 1.8;
+      max-width: 330px;
+    }
+
+    /* Map Section */
+    .map-section {
+      background: #211916;
+      color: #f1e6da;
+      padding: 110px 0 90px;
+    }
+    .map-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+    }
+    .map-heading h2 {
+      margin: 20px 0 10px;
+    }
+    .map-heading p {
+      color: #c0afa2;
+      font-size: 13px;
+    }
+    .map-instruction {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ef914d;
+      font-size: 9px;
+      letter-spacing: 0.13em;
+      line-height: 1.6;
+    }
+    .map-instruction strong {
+      color: #eadbcb;
+    }
+    .map-layout {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      min-height: 550px;
+    }
+    .map-canvas {
+      background: #17110f;
+      border: 1px solid #3a2a22;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .map-canvas-top,
+    .map-canvas-bottom {
+      display: flex;
+      justify-content: space-between;
+      color: #b5a092;
+      font-size: 8px;
+      letter-spacing: 0.14em;
+    }
+    .map-canvas-bottom i {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #d88350;
+      margin-right: 7px;
+    }
+    .district-map {
+      width: 100%;
+      flex: 1;
+      max-height: 510px;
+      overflow: visible;
+    }
+    .district {
+      fill: #241a16;
+      stroke: #795137;
+      stroke-width: 1.2;
+      vector-effect: non-scaling-stroke;
+      cursor: pointer;
+      transition: fill 0.2s, filter 0.2s, stroke 0.2s;
+      outline: none;
+    }
+    .district:hover,
+    .district:focus,
+    .district.active {
+      fill: #e77c36;
+      stroke: #ffb46e;
+      filter: drop-shadow(0 0 8px rgba(231, 124, 54, 0.44));
+    }
+    .district-panel {
+      background: #261d19;
+      color: #f1e6da;
+      border: 1px solid #3c2b23;
+      padding: 36px 40px 27px;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ee914d;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+    .panel-number {
+      color: #b9a596;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      margin-top: 48px;
+    }
+    .district-panel h3 {
+      font-size: 45px;
+      line-height: 1.05;
+      margin: 12px 0 7px;
+      color: #f1e6da;
+    }
+    .district-panel h3 span {
+      display: block;
+      font-size: 19px;
+      color: #e99a65;
+      font-style: italic;
+    }
+    .panel-tagline {
+      font-size: 13px;
+      color: #b9a596;
+    }
+    .panel-rule {
+      height: 1px;
+      background: #49352a;
+      margin: 26px 0 6px;
+    }
+    .accordion {
+      border-bottom: 1px solid #49352a;
+    }
+    .accordion button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 0;
+      background: none;
+      padding: 17px 0;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: #eee0d1;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .chevron-wrap {
+      display: inline-flex;
+      color: #f08a43;
+      transition: transform 0.2s ease;
+    }
+    .chevron-wrap.rotated {
+      transform: rotate(180deg);
+    }
+    .accordion-content p {
+      color: #c0aea0;
+      font-size: 12px;
+      line-height: 1.7;
+      padding: 0 0 16px;
+      margin: 0;
+    }
+    .panel-note {
+      display: flex;
+      gap: 10px;
+      color: #b9a596;
+      margin-top: 28px;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .panel-note svg {
+      flex-shrink: 0;
+      color: #ee914d;
+    }
+    .map-source {
+      color: #a99687;
+      font-size: 10px;
+      margin-top: 14px;
+    }
+
+    /* Closing */
+    .closing {
+      text-align: center;
+      padding: 100px 20px;
+      background: #211916;
+      border-top: 1px solid #473126;
+      border-bottom: 1px solid #473126;
+    }
+    .closing-ornament {
+      font-size: 25px;
+      color: #ef8a42;
+    }
+    .closing .eyebrow {
+      justify-content: center;
+      color: #eea06b;
+      margin: 20px 0;
+    }
+    .closing h2 {
+      margin: 0;
+      color: #f2e8dc;
+    }
+    .closing p {
+      color: #c8b5a6;
+      font-size: 13px;
+      margin: 20px 0 30px;
+    }
+    .closing a {
+      color: #f2e8dc;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      font-weight: 700;
+      border-bottom: 1px solid #a55b31;
+      padding-bottom: 10px;
+      display: inline-flex;
+      gap: 15px;
+      align-items: center;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .closing a:hover {
+      color: #ffb46e;
+      border-color: #ffb46e;
+    }
+
+    /* Footer */
+    .heritage-page footer {
+      min-height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 6.3%;
+      background: #17110f;
+      color: #b9a596;
+      border-top: 1px solid #3a2b24;
+      font-size: 9px;
+      letter-spacing: 0.13em;
+    }
+    .heritage-page footer .brand {
+      color: #f1e6da;
+    }
+    .heritage-page footer .brand-mark {
+      color: #ef8a42;
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .site-header {
+        height: 68px;
+        padding: 0 6%;
+      }
+      .site-header nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #1b1411;
+        padding: 20px 6% 28px;
+        align-items: flex-start;
+        gap: 20px;
+        border-bottom: 1px solid #3a2b24;
+      }
+      .site-header nav.nav-open {
+        display: flex;
+        flex-direction: column;
+      }
+      .header-cta {
+        margin-left: auto;
+        padding: 10px;
+        font-size: 10px;
+        gap: 8px;
+      }
+      .mobile-menu {
+        display: block;
+      }
+      .hero {
+        min-height: 600px;
+        height: calc(90vh - 68px);
+      }
+      .hero-image {
+        background-position: 60% center;
+      }
+      .hero-shade {
+        background: linear-gradient(90deg, rgba(25,18,15,0.88), rgba(25,18,15,0.35)), linear-gradient(0deg, rgba(27,20,17,0.8), transparent);
+      }
+      .hero-inner {
+        padding-top: 100px;
+      }
+      .hero h1 {
+        font-size: clamp(57px, 12vw, 78px);
+      }
+      .hero-side {
+        display: none;
+      }
+      .hero-bottom span:last-child {
+        display: none;
+      }
+      .intro-section, .culture-section, .map-section {
+        padding: 75px 0;
+      }
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .intro-small, .intro-seal {
+        display: none;
+      }
+      .culture-heading {
+        display: block;
+      }
+      .culture-heading > p {
+        margin-top: 20px;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+      .story-image {
+        height: 260px;
+      }
+      .map-heading {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+      }
+      .map-instruction {
+        display: none;
+      }
+      .map-layout {
+        grid-template-columns: 1fr;
+      }
+      .map-canvas {
+        min-height: 380px;
+        padding: 20px;
+        border-bottom: 0;
+      }
+      .map-canvas-top, .map-canvas-bottom {
+        font-size: 7px;
+      }
+      .district-panel {
+        padding: 30px;
+        border-top: 0;
+      }
+      .panel-number {
+        margin-top: 30px;
+      }
+      .district-panel h3 {
+        font-size: 38px;
+      }
+      .heritage-page footer {
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+      .heritage-page footer > span {
+        font-size: 8px;
+      }
+      .closing {
+        padding: 75px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="heritage-page">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Delhi heritage home">
+        <span class="brand-mark">D<span>✳</span></span>
+        <span class="brand-name">DELHI<span> A LIVING HERITAGE</span></span>
+      </a>
+      <nav id="site-nav">
+        <a href="#story">Our story</a>
+        <a href="#culture">Culture &amp; heritage</a>
+        <a href="#map">Explore the map</a>
+      </nav>
+      <a class="header-cta" href="#map">Explore Delhi <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></a>
+      <button class="mobile-menu" id="menu-btn" aria-label="Toggle menu">
+        <span id="menu-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </span>
+      </button>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-image"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-inner">
+        <div class="hero-eyebrow"><span class="tiny-star">✳</span> THE HEART OF INDIA &nbsp; / &nbsp; EST. OVER CENTURIES</div>
+        <h1>Delhi is not<br/>just a city.<br/><em>It’s a story.</em></h1>
+        <p>Many cities. A thousand stories. One extraordinary place to discover.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#story">Discover Delhi <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+          <a class="button-link" href="#map">Explore the map <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span>SCROLL TO UNCOVER <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg></span>
+        <span>HUMAYUN’S TOMB &nbsp; · &nbsp; NEW DELHI</span>
+      </div>
+      <div class="hero-side">A CITY OF STORIES &nbsp; ✳ &nbsp; DILLI MERI JAAN</div>
+    </section>
+
+    <section class="intro-section" id="story">
+      <div class="section-wrap intro-grid">
+        <div>
+          <div class="eyebrow"><span></span> NAMASTE, DELHI</div>
+          <p class="intro-small">A LOVE LETTER TO<br/>INDIA’S CAPITAL</p>
+        </div>
+        <div>
+          <h2>Old soul.<br/><em>New stories.</em></h2>
+          <p>Delhi is a place where the past is never really past. It lives in the sandstone of its monuments, the poetry of its people, and the irresistible aromas drifting through its streets.</p>
+          <p>From the narrow lanes of Shahjahanabad to the wide avenues of New Delhi, come discover a capital that is as wonderfully diverse as the people who call it home.</p>
+          <a class="text-link" href="#culture">GET TO KNOW DELHI <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+        </div>
+        <div class="intro-seal">
+          <div>दिल्ली<br/><span>दिल से</span></div>
+          <small>WITH LOVE, FROM DELHI</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="culture-section" id="culture">
+      <div class="section-wrap">
+        <div class="culture-heading">
+          <div>
+            <div class="eyebrow"><span></span> THE DELHI EXPERIENCE</div>
+            <h2>Stories around<br/><em>every corner.</em></h2>
+          </div>
+          <p>A little history, a lot of heart, and a million things waiting to be discovered.</p>
+        </div>
+        <div class="story-grid">
+
+        <article class="story-card">
+          <div class="story-image">
+            <img src="https://images.pexels.com/photos/18567593/pexels-photo-18567593.jpeg" alt="Historic stone colonnade at the Qutub complex" loading="lazy" />
+            <span>01 / 03</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg>
+          </div>
+          <div class="story-category">HISTORY & ARCHITECTURE</div>
+          <h3>A city of cities</h3>
+          <p>From the minarets of the Delhi Sultanate to Mughal gardens and colonial avenues, every era has left a story in stone.</p>
+        </article>
+
+        <article class="story-card">
+          <div class="story-image">
+            <img src="https://images.pexels.com/photos/17870116/pexels-photo-17870116.jpeg" alt="Spices at a Delhi market" loading="lazy" />
+            <span>02 / 03</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg>
+          </div>
+          <div class="story-category">FLAVOURS OF DELHI</div>
+          <h3>A feast for the senses</h3>
+          <p>Follow the aroma of sizzling kebabs, warm parathas and sweet jalebi through lanes that have fed generations.</p>
+        </article>
+
+        <article class="story-card">
+          <div class="story-image">
+            <img src="https://images.pexels.com/photos/20083843/pexels-photo-20083843.jpeg" alt="Jama Masjid in Delhi at dusk" loading="lazy" />
+            <span>03 / 03</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg>
+          </div>
+          <div class="story-category">LIVING TRADITIONS</div>
+          <h3>The rhythm of life</h3>
+          <p>In bazaars, shrines and neighbourhood celebrations, Delhi's many communities keep its heritage beautifully alive.</p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" id="map">
+      <div class="section-wrap">
+        <div class="map-heading">
+          <div>
+            <div class="eyebrow"><span></span> A CLOSER LOOK</div>
+            <h2>Find your Delhi.</h2>
+            <p>Every neighbourhood has a story. Find one that speaks to you.</p>
+          </div>
+          <div class="map-instruction">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l2 -6l6 -2l-2 6l-6 2"/><circle cx="12" cy="12" r="9"/></svg>
+            <span>HOVER TO EXPLORE<br/><strong>CLICK TO SELECT</strong></span>
+          </div>
+        </div>
+        <div class="map-layout">
+          <div class="map-canvas" id="map-canvas">
+            <div class="map-canvas-top">
+              <span>THE NATIONAL CAPITAL TERRITORY</span>
+              <span>28.6139° N &nbsp; 77.2090° E</span>
+            </div>
+            <svg class="district-map" viewBox="0 0 710 620" role="img" aria-label="Interactive map of Delhi districts" id="district-svg">
+            <path d="M280.1,30.2 L279.7,31.5 L279.2,32.6 L278.3,34.1 L277.6,35.0 L276.8,36.0 L275.4,37.3 L275.4,38.6 L276.0,40.2 L276.3,41.2 L276.6,42.6 L276.6,43.8 L275.1,44.9 L274.1,45.9 L273.2,46.9 L272.7,47.8 L271.8,49.0 L270.9,48.5 L269.8,47.9 L268.9,47.4 L267.7,48.5 L266.6,49.1 L265.2,48.8 L263.6,48.0 L262.3,47.5 L260.6,46.5 L259.6,45.8 L258.6,45.2 L257.4,45.7 L256.3,46.8 L255.5,47.7 L254.6,48.7 L253.6,50.6 L252.8,52.1 L251.9,53.4 L251.2,54.3 L250.3,56.3 L249.8,57.8 L249.0,59.5 L248.3,61.2 L247.9,62.3 L247.6,64.0 L246.9,65.1 L245.2,67.7 L244.5,68.7 L243.1,71.0 L242.1,72.5 L241.5,73.9 L241.5,75.4 L241.8,76.7 L241.8,78.1 L241.7,79.2 L241.5,80.3 L240.8,81.1 L239.9,81.7 L239.0,82.6 L238.2,83.7 L238.5,84.9 L239.0,86.0 L239.0,87.3 L238.6,88.3 L237.4,89.5 L236.5,90.4 L235.3,90.1 L234.0,89.4 L233.0,88.9 L231.5,88.1 L230.4,87.6 L229.2,87.0 L228.0,86.5 L226.8,86.1 L225.1,85.3 L223.9,85.0 L221.0,83.4 L220.0,82.7 L219.2,81.9 L217.5,81.9 L216.0,81.9 L213.8,81.6 L212.6,81.3 L211.4,81.2 L210.0,81.1 L208.3,81.0 L206.6,81.1 L205.5,80.5 L204.2,80.6 L202.9,80.9 L201.6,80.6 L200.3,81.2 L198.9,81.5 L197.4,81.9 L195.6,82.7 L194.6,82.9 L193.5,83.1 L192.4,82.8 L191.4,82.4 L190.1,81.8 L188.6,82.4 L187.3,82.9 L186.5,83.8 L185.4,84.6 L184.4,85.5 L183.4,86.6 L182.4,87.8 L181.8,88.9 L181.5,90.7 L181.0,92.0 L180.8,93.6 L180.0,95.1 L179.3,96.3 L178.6,97.2 L178.0,98.7 L177.6,99.7 L176.6,100.9 L175.3,102.4 L174.4,103.1 L173.1,102.5 L171.7,101.6 L170.5,101.1 L169.8,100.2 L169.1,99.1 L168.5,97.9 L167.8,96.9 L165.9,96.1 L164.9,95.8 L163.1,95.5 L161.9,95.2 L160.8,95.5 L160.1,98.0 L159.2,98.8 L159.3,99.8 L158.6,100.7 L158.2,101.7 L159.0,103.1 L159.3,104.3 L158.7,105.4 L158.3,106.4 L157.8,107.3 L157.3,108.3 L156.8,109.3 L156.1,110.4 L161.9,112.0 L163.5,113.8 L162.7,116.0 L165.2,118.0 L162.9,122.5 L162.5,125.2 L164.2,126.5 L163.8,128.5 L174.4,134.9 L178.3,134.7 L182.0,137.6 L187.5,143.4 L194.9,144.3 L210.7,150.7 L209.7,157.6 L209.6,163.0 L208.8,168.1 L210.5,171.9 L212.5,178.6 L221.7,183.5 L224.5,184.1 L233.3,185.3 L243.0,190.3 L247.3,192.5 L250.4,193.2 L256.8,194.3 L260.7,197.4 L261.7,198.5 L264.6,200.0 L270.0,203.6 L272.8,206.1 L275.7,208.2 L278.8,210.0 L283.6,202.4 L286.8,199.5 L291.7,199.7 L293.4,197.3 L297.7,199.0 L306.1,200.6 L306.7,203.0 L309.6,208.8 L313.2,215.9 L316.1,220.6 L317.1,227.1 L318.0,233.5 L322.1,235.7 L327.4,232.0 L328.4,230.2 L328.0,228.0 L330.7,222.6 L336.4,218.8 L339.5,211.9 L342.9,209.5 L350.1,212.6 L357.7,204.8 L360.2,210.4 L361.0,212.4 L357.9,221.3 L360.0,222.8 L360.6,226.4 L360.2,228.8 L358.9,230.4 L359.1,233.7 L360.0,234.9 L357.7,238.0 L365.3,242.6 L371.6,243.8 L372.9,241.7 L375.3,242.6 L377.3,241.5 L378.5,241.7 L378.4,243.1 L376.8,244.1 L378.4,246.2 L381.4,248.4 L383.4,250.2 L385.5,249.1 L386.1,250.6 L385.8,252.3 L387.7,253.3 L390.6,253.8 L392.6,256.0 L395.8,261.3 L396.8,262.9 L399.2,260.5 L404.5,255.4 L406.6,253.2 L407.8,251.2 L410.6,246.4 L411.8,244.5 L413.7,242.5 L414.5,241.7 L417.1,237.5 L417.5,236.5 L421.6,226.2 L420.5,225.1 L419.8,224.2 L419.1,222.3 L418.1,221.1 L416.8,219.7 L416.1,218.7 L416.2,217.0 L416.2,215.8 L416.2,214.7 L416.3,213.7 L415.1,213.5 L413.8,213.3 L411.6,213.3 L410.2,213.3 L408.3,213.3 L406.8,213.2 L405.3,212.9 L404.1,212.7 L403.1,212.5 L401.2,212.3 L399.7,212.1 L398.1,212.0 L397.0,211.9 L395.8,212.1 L394.7,213.3 L394.3,214.3 L392.6,215.0 L391.4,213.2 L390.9,211.7 L390.5,210.5 L390.0,209.3 L389.0,208.4 L388.0,208.2 L386.6,208.0 L385.6,207.5 L384.6,206.4 L383.9,205.0 L382.8,203.8 L381.6,203.1 L380.8,202.5 L379.7,201.6 L378.7,200.8 L377.6,199.7 L376.8,198.8 L376.3,197.9 L375.9,196.8 L375.4,195.0 L375.1,193.8 L374.9,192.8 L375.5,191.9 L375.5,190.8 L376.6,189.1 L377.9,188.6 L377.7,187.6 L378.5,186.9 L379.7,186.3 L380.9,185.7 L381.9,185.6 L382.9,183.9 L382.7,182.3 L381.8,181.2 L380.0,180.8 L379.0,180.6 L379.3,178.8 L379.7,177.7 L378.4,176.8 L377.2,176.7 L376.2,176.2 L375.3,175.7 L374.4,174.9 L374.4,173.7 L374.8,172.6 L375.2,171.1 L375.0,169.9 L374.5,168.5 L373.2,167.6 L372.3,167.1 L371.5,166.0 L371.6,164.7 L371.9,163.4 L371.4,162.3 L371.5,161.2 L371.6,160.0 L373.1,160.4 L375.3,161.5 L377.5,162.2 L379.2,162.7 L380.6,162.7 L381.9,162.6 L383.8,162.3 L385.3,162.0 L386.4,161.6 L387.5,161.0 L389.9,158.8 L391.0,157.8 L392.4,156.6 L394.2,155.0 L395.7,153.6 L397.7,151.3 L399.4,149.4 L398.6,146.8 L399.8,146.2 L400.8,145.9 L402.2,145.3 L403.2,144.8 L404.1,144.3 L405.1,143.8 L406.2,143.3 L407.4,142.6 L409.5,141.5 L407.9,140.0 L406.4,138.8 L404.8,137.7 L403.2,135.9 L402.0,133.9 L400.5,131.4 L399.9,130.2 L400.0,128.2 L400.5,126.6 L400.6,125.1 L400.9,122.1 L401.0,119.3 L401.5,115.9 L402.0,113.5 L406.2,114.8 L408.4,115.4 L414.3,117.3 L416.5,117.8 L418.7,118.1 L420.0,118.3 L420.1,116.0 L420.4,113.9 L420.6,112.4 L420.7,110.0 L421.0,108.5 L421.2,107.4 L421.3,105.5 L423.0,104.0 L423.7,102.1 L424.6,101.2 L425.1,99.8 L425.4,98.8 L425.4,97.4 L424.9,96.3 L424.0,94.3 L423.7,92.8 L423.8,91.6 L424.1,90.6 L424.2,89.6 L423.1,88.3 L422.3,87.0 L421.6,85.6 L420.6,83.7 L419.6,82.2 L418.5,80.7 L417.6,79.4 L417.6,78.3 L417.6,76.0 L417.8,73.7 L418.2,72.2 L418.3,70.5 L418.3,68.6 L417.6,66.4 L416.8,64.7 L415.7,63.3 L414.7,62.5 L413.5,62.3 L412.3,61.8 L410.7,60.4 L409.3,60.5 L407.5,60.3 L406.5,60.2 L405.1,59.8 L403.9,59.4 L402.8,59.4 L401.5,59.3 L400.4,59.1 L398.7,58.7 L397.6,58.7 L395.9,58.9 L394.7,59.2 L393.6,59.5 L392.4,59.6 L390.9,59.7 L389.4,60.0 L388.0,60.1 L387.0,60.2 L385.7,60.1 L384.5,60.3 L383.5,60.5 L382.1,60.7 L380.7,60.6 L379.7,60.5 L378.7,60.1 L377.7,59.9 L376.6,60.5 L375.6,60.1 L374.3,60.2 L373.4,60.7 L372.7,61.6 L372.5,63.7 L372.3,65.2 L372.2,66.4 L372.0,67.9 L372.0,69.0 L371.0,69.4 L370.0,69.0 L368.9,69.1 L367.8,69.9 L366.9,70.6 L365.8,70.4 L364.9,71.4 L363.8,72.9 L362.7,74.4 L362.1,75.4 L361.5,76.2 L360.8,77.4 L359.8,78.7 L359.1,79.7 L358.3,80.7 L357.3,81.5 L356.3,82.2 L356.4,83.7 L357.2,84.4 L356.1,84.8 L355.0,84.6 L353.9,84.3 L352.8,84.1 L351.8,84.0 L350.5,83.9 L349.2,83.8 L348.2,83.7 L347.1,83.7 L346.0,83.7 L344.8,83.6 L343.8,83.3 L342.8,83.2 L341.4,82.5 L341.4,81.3 L341.5,80.1 L341.3,78.8 L340.7,77.1 L340.6,75.7 L340.8,74.5 L340.9,73.3 L341.2,72.2 L341.6,71.1 L342.1,70.1 L343.2,68.7 L343.8,67.8 L344.4,66.7 L344.4,65.5 L343.7,64.4 L342.7,64.0 L341.4,62.9 L340.9,62.0 L341.0,61.0 L341.3,60.0 L341.5,58.5 L340.2,57.9 L339.7,56.8 L339.4,55.6 L338.2,55.5 L337.0,55.3 L336.0,55.1 L334.8,55.0 L333.8,54.9 L332.5,54.7 L331.3,54.1 L330.4,54.6 L329.6,55.3 L328.8,56.1 L327.8,56.5 L326.7,56.9 L325.6,57.4 L324.5,57.6 L323.7,58.5 L323.2,59.4 L323.4,60.5 L322.3,60.6 L321.0,60.1 L319.7,59.8 L319.3,58.7 L319.1,57.7 L317.9,57.0 L316.7,55.8 L315.7,54.9 L314.7,54.1 L314.3,53.1 L314.0,52.1 L312.9,51.7 L312.2,50.8 L311.3,50.3 L310.5,49.7 L309.4,48.1 L308.8,47.2 L308.2,46.2 L306.9,46.3 L305.5,46.3 L304.0,46.1 L303.0,45.9 L302.0,45.5 L300.4,45.4 L299.1,45.4 L297.9,45.3 L296.3,45.2 L295.3,45.1 L294.2,44.9 L292.7,44.6 L291.6,44.2 L290.6,43.5 L289.2,42.8 L288.4,42.2 L287.0,41.0 L286.1,40.3 L285.1,39.8 L285.4,38.6 L285.6,37.5 L284.9,36.1 L284.7,34.7 L284.4,33.3 L283.5,32.3 L282.4,31.8 L281.4,31.3 L280.6,30.6 L280.1,30.2 Z" class="district" data-name="North" tabindex="0" role="button" aria-label="North district"></path>
+            <path d="M433.2,161.8 L430.5,161.8 L427.2,162.1 L423.1,162.5 L421.1,162.7 L419.5,164.8 L418.9,166.6 L419.4,168.3 L419.6,169.4 L420.7,171.7 L421.4,172.9 L422.3,174.7 L423.1,176.2 L423.2,177.3 L423.1,179.0 L423.1,180.1 L423.1,181.8 L423.0,183.2 L423.1,184.6 L422.3,185.4 L423.3,185.5 L424.6,186.0 L425.6,186.5 L427.2,187.0 L428.5,187.6 L429.6,187.9 L431.4,188.6 L432.4,188.9 L434.0,189.4 L435.8,189.9 L437.4,190.6 L438.8,191.1 L440.0,191.6 L441.5,192.5 L442.8,193.3 L443.4,194.3 L443.4,195.4 L443.3,196.8 L443.6,197.8 L443.4,198.8 L442.8,200.0 L442.3,200.9 L441.9,201.9 L441.7,202.9 L442.5,204.2 L443.3,205.1 L443.1,207.2 L442.8,209.7 L439.8,211.0 L439.2,213.4 L438.6,215.6 L439.6,215.7 L440.3,217.1 L441.0,218.3 L441.2,219.3 L440.7,220.5 L440.2,221.9 L439.5,222.8 L440.6,223.1 L441.9,223.1 L443.1,223.3 L444.1,223.2 L445.9,224.8 L447.1,225.9 L448.9,227.4 L450.3,228.6 L451.5,229.7 L452.9,230.8 L454.0,231.9 L454.3,233.6 L453.3,236.2 L452.4,238.8 L450.9,238.4 L449.8,238.1 L448.2,237.6 L440.5,233.4 L438.9,232.8 L436.8,232.1 L435.8,231.8 L434.6,231.5 L433.6,231.1 L432.2,230.7 L431.0,230.7 L431.7,233.3 L435.8,247.4 L440.7,254.9 L441.7,255.1 L445.1,255.9 L446.9,256.4 L448.2,261.4 L448.8,263.9 L449.2,266.1 L449.7,270.0 L451.2,270.4 L454.2,272.6 L454.7,276.1 L461.4,277.4 L462.8,277.8 L464.0,278.6 L466.9,273.4 L468.0,272.3 L469.8,267.0 L472.4,259.1 L472.3,257.1 L472.5,253.5 L474.1,250.6 L474.7,248.5 L478.8,248.6 L484.9,249.1 L486.0,247.4 L487.5,249.1 L489.0,247.4 L494.5,250.0 L498.3,250.8 L498.3,248.1 L498.8,244.7 L498.4,241.1 L499.8,239.6 L498.7,239.1 L497.5,238.3 L496.3,238.0 L495.1,237.9 L493.9,237.2 L492.3,235.9 L491.6,234.4 L491.0,233.4 L490.2,232.8 L490.3,231.5 L489.7,230.4 L489.9,229.3 L489.0,227.8 L491.9,225.1 L491.7,221.9 L493.6,218.6 L492.0,217.9 L490.2,216.6 L489.1,216.1 L488.5,214.2 L485.1,210.4 L480.6,205.0 L478.9,203.4 L476.9,202.7 L475.3,202.4 L474.3,203.4 L472.0,203.7 L469.9,204.1 L468.8,204.3 L467.3,204.5 L463.9,205.0 L462.9,204.9 L461.8,203.5 L459.8,201.7 L457.8,199.6 L457.1,198.4 L456.5,193.9 L458.2,193.5 L460.1,189.0 L460.5,188.0 L461.2,186.4 L461.2,184.9 L461.2,183.7 L459.4,182.3 L458.4,181.6 L458.4,179.1 L456.5,179.4 L453.9,179.9 L452.1,180.3 L450.7,180.2 L449.7,179.9 L446.6,178.5 L444.2,177.2 L441.8,176.0 L440.4,175.4 L439.1,174.5 L438.1,174.2 L437.1,173.7 L436.9,172.6 L437.6,170.5 L437.4,168.3 L437.5,167.0 L437.6,165.1 L437.5,163.4 L437.3,162.1 L435.8,162.1 L434.5,162.1 L433.1,162.1 L433.2,161.8 Z" class="district" data-name="North East" tabindex="0" role="button" aria-label="North East district"></path>
+            <path d="M169.1,242.9 L167.0,242.7 L166.1,243.8 L165.1,244.2 L164.1,245.1 L163.1,245.7 L161.7,246.0 L160.4,247.4 L159.1,249.2 L158.2,250.8 L157.6,251.9 L157.6,253.0 L157.4,254.2 L156.7,255.4 L155.5,256.9 L154.6,258.3 L154.1,259.4 L153.2,260.7 L152.7,261.6 L152.2,262.8 L151.6,264.4 L151.2,265.7 L150.9,266.7 L150.7,267.8 L150.9,269.0 L150.8,270.0 L150.3,271.3 L150.1,272.3 L150.0,273.3 L150.2,274.5 L150.1,276.0 L150.1,277.5 L150.0,278.5 L148.8,280.7 L148.0,282.1 L147.5,283.1 L148.6,283.6 L150.1,284.6 L151.7,285.7 L152.7,286.5 L153.8,287.4 L155.9,289.0 L157.0,290.0 L158.6,290.8 L160.5,291.6 L161.5,292.0 L162.3,293.2 L163.3,293.5 L164.5,293.7 L165.6,294.2 L166.6,294.3 L168.0,295.0 L169.2,295.0 L170.6,294.9 L171.8,294.9 L172.8,295.5 L173.5,296.5 L173.9,297.5 L176.0,296.9 L176.7,296.1 L178.0,295.0 L178.8,294.2 L180.9,293.3 L182.0,292.6 L183.7,290.6 L185.9,292.3 L187.0,293.0 L188.2,293.5 L188.0,294.7 L187.8,295.9 L189.2,296.8 L190.0,297.5 L190.7,298.3 L192.8,299.3 L193.9,299.7 L194.8,300.3 L196.0,300.9 L197.5,301.7 L196.5,302.5 L195.0,303.7 L194.9,306.3 L195.1,307.3 L195.3,308.4 L196.0,310.2 L196.8,312.1 L197.0,313.6 L197.4,315.4 L197.8,316.9 L198.3,318.1 L199.3,320.3 L199.8,322.0 L200.1,323.0 L200.3,324.6 L200.6,325.6 L201.4,327.6 L202.3,329.0 L201.7,330.0 L200.5,331.4 L199.7,332.6 L201.5,333.5 L202.7,333.7 L204.1,332.9 L205.1,332.3 L206.8,332.2 L208.4,332.0 L209.4,331.9 L210.6,331.0 L211.5,330.0 L212.9,329.8 L214.3,330.2 L215.3,330.5 L217.0,330.7 L218.0,331.1 L218.4,332.9 L218.7,334.3 L218.4,336.2 L219.1,337.2 L221.1,337.7 L222.3,338.2 L223.6,338.3 L224.8,338.8 L226.5,339.5 L228.1,340.6 L229.1,341.4 L230.0,342.0 L230.9,343.3 L229.7,343.4 L229.0,344.2 L229.1,345.5 L229.4,347.6 L229.9,348.9 L230.2,350.3 L230.7,352.1 L231.4,353.8 L231.7,355.1 L232.6,356.4 L233.4,357.2 L234.7,357.6 L236.1,358.3 L237.8,359.0 L239.4,359.6 L241.2,360.4 L243.5,361.5 L244.6,362.1 L246.5,363.1 L247.8,364.2 L249.7,365.6 L252.1,366.1 L253.0,365.6 L254.6,364.3 L255.2,362.8 L256.3,363.5 L257.4,363.1 L258.8,362.1 L257.8,361.1 L256.9,360.0 L254.5,358.5 L253.5,357.8 L252.5,356.6 L251.1,355.6 L250.1,354.3 L249.0,353.0 L249.9,351.8 L250.4,350.9 L251.1,349.8 L251.6,348.0 L251.0,347.1 L250.5,346.1 L249.9,344.9 L249.2,343.5 L248.5,342.7 L249.4,341.0 L251.7,340.7 L254.1,341.3 L256.0,341.3 L257.2,341.1 L259.1,338.9 L260.6,337.0 L262.0,338.0 L263.8,338.7 L265.0,339.3 L265.9,339.8 L267.7,341.2 L269.9,342.9 L271.1,343.8 L272.7,344.8 L273.7,345.5 L275.0,346.4 L276.4,347.3 L277.4,347.4 L278.1,346.1 L279.1,345.5 L280.5,345.4 L281.5,344.6 L282.5,343.7 L283.5,343.1 L284.2,342.2 L285.2,341.8 L286.3,341.4 L287.1,340.6 L288.4,341.1 L290.2,341.6 L293.4,342.4 L296.6,344.1 L301.9,346.8 L303.3,346.0 L305.0,345.2 L308.6,343.5 L311.9,341.1 L313.6,340.4 L314.7,338.2 L315.1,335.6 L315.1,334.3 L315.9,331.6 L316.7,329.0 L318.2,327.6 L320.3,326.4 L320.0,324.5 L320.1,323.2 L321.3,321.5 L322.7,318.6 L323.0,317.3 L323.8,316.2 L328.2,315.6 L330.1,314.6 L331.8,314.2 L335.1,313.7 L337.5,314.2 L339.5,315.1 L344.7,317.0 L346.2,314.7 L348.9,318.1 L352.5,315.5 L357.5,319.8 L361.2,323.1 L362.9,325.4 L364.3,327.9 L365.1,329.0 L367.4,327.8 L372.4,326.6 L375.3,326.5 L375.0,324.9 L374.7,323.2 L374.0,321.8 L374.2,319.5 L374.4,317.7 L374.5,316.6 L374.2,315.6 L374.0,314.6 L374.3,313.0 L374.9,311.8 L377.5,308.1 L378.8,305.0 L378.8,302.4 L378.5,301.4 L377.7,298.5 L374.5,299.3 L373.4,299.5 L372.0,299.4 L370.6,299.9 L369.0,299.7 L368.0,297.4 L367.6,295.9 L366.2,295.4 L366.7,294.5 L367.7,293.7 L368.9,291.8 L369.8,290.0 L371.0,284.7 L372.0,283.2 L366.0,280.6 L361.1,278.3 L362.2,276.8 L360.9,275.8 L358.3,277.0 L348.6,276.5 L347.7,280.8 L346.3,280.5 L341.6,279.1 L338.3,278.5 L334.2,274.8 L331.4,271.5 L329.4,270.3 L329.4,268.3 L330.9,267.9 L331.0,266.5 L331.7,265.6 L331.9,263.4 L332.3,262.3 L332.2,260.5 L332.3,259.3 L332.3,258.2 L332.1,257.0 L332.4,255.6 L332.7,254.3 L333.5,252.2 L333.9,251.2 L334.5,249.8 L333.4,248.8 L331.5,248.4 L330.5,248.3 L328.8,248.1 L327.2,247.7 L326.0,247.5 L323.1,251.8 L319.7,256.3 L318.5,256.3 L316.7,259.7 L313.1,264.6 L306.7,258.8 L305.8,258.2 L301.6,262.7 L299.9,260.5 L295.7,257.3 L294.4,257.7 L292.8,257.7 L291.6,258.9 L290.8,259.7 L290.1,261.2 L289.3,260.2 L288.3,259.8 L287.1,259.1 L286.1,258.4 L283.0,257.8 L282.0,258.4 L280.7,258.8 L280.2,259.7 L279.7,260.6 L276.1,263.8 L274.9,264.5 L273.3,264.7 L272.4,264.0 L271.6,263.0 L270.7,261.4 L263.6,256.2 L262.4,255.0 L261.5,254.2 L260.5,255.1 L259.3,256.1 L258.0,256.7 L256.7,257.5 L255.8,258.2 L255.0,259.1 L253.4,259.9 L252.5,261.5 L251.4,263.3 L250.8,264.2 L249.8,263.7 L249.1,262.9 L248.4,262.0 L247.8,261.2 L246.6,260.0 L245.4,258.6 L244.8,257.6 L244.1,256.3 L243.3,255.0 L242.8,253.7 L242.2,252.8 L241.9,251.6 L241.3,250.4 L240.3,249.7 L239.3,249.1 L238.4,248.4 L237.4,247.8 L236.3,247.4 L235.0,246.9 L233.7,246.6 L232.2,247.2 L230.7,247.6 L229.7,247.9 L228.7,248.1 L227.3,248.5 L225.8,248.9 L224.3,249.2 L223.2,249.4 L221.8,249.6 L220.8,249.8 L219.8,249.9 L218.5,250.1 L217.3,250.1 L215.6,250.2 L214.3,250.4 L213.2,250.4 L212.0,250.4 L208.3,250.3 L207.8,251.2 L206.8,253.7 L206.0,256.0 L205.6,257.3 L204.9,258.5 L203.9,259.8 L203.2,260.8 L202.4,261.7 L201.2,263.4 L200.5,264.2 L199.9,265.1 L199.2,266.1 L198.5,267.3 L197.8,268.1 L196.8,268.7 L195.6,269.1 L192.3,266.9 L190.5,266.2 L188.5,264.6 L186.1,262.5 L185.2,261.5 L184.1,260.7 L182.6,259.7 L180.7,258.2 L179.7,257.4 L178.3,256.4 L177.2,255.0 L176.2,253.6 L175.2,252.4 L173.9,250.8 L173.4,249.8 L172.8,249.0 L171.7,248.3 L171.0,247.4 L170.8,246.1 L171.2,245.1 L170.1,243.6 L169.1,243.2 L169.1,242.9 Z" class="district" data-name="West" tabindex="0" role="button" aria-label="West district"></path>
+            <path d="M495.6,296.5 L491.9,291.7 L469.5,301.3 L466.9,301.3 L467.6,302.6 L468.1,304.0 L468.1,305.3 L468.7,306.6 L468.8,307.9 L468.8,309.0 L468.7,310.2 L467.9,310.9 L466.9,311.0 L466.5,312.0 L466.4,313.2 L466.0,314.2 L465.4,315.5 L465.4,317.6 L465.1,318.8 L464.6,320.0 L464.1,321.2 L463.4,322.6 L462.3,323.5 L461.6,324.3 L460.7,326.0 L460.4,327.2 L461.2,328.6 L460.7,330.4 L460.0,331.4 L459.7,332.4 L459.4,333.8 L459.3,336.0 L459.9,337.6 L460.5,339.1 L460.7,340.3 L460.9,342.0 L461.1,343.6 L461.4,344.9 L457.6,345.8 L457.7,347.3 L457.7,348.4 L457.6,349.4 L458.0,351.3 L458.6,352.8 L459.6,354.5 L460.2,355.9 L460.7,357.3 L461.3,358.5 L461.6,359.7 L462.5,360.6 L463.1,362.0 L463.7,363.3 L464.1,364.7 L465.0,367.0 L465.6,368.4 L466.5,369.6 L466.9,370.6 L469.3,371.1 L469.0,369.1 L468.6,366.9 L469.3,365.6 L470.8,365.5 L471.9,365.5 L473.0,365.3 L473.9,364.7 L474.7,363.9 L475.6,362.8 L476.5,362.3 L477.3,361.7 L477.8,360.8 L478.8,361.0 L479.9,361.3 L481.0,361.6 L482.2,361.5 L483.0,362.4 L484.2,362.4 L485.1,363.2 L486.1,363.0 L487.1,363.1 L487.3,364.1 L488.0,364.9 L488.2,366.0 L487.7,366.9 L488.9,367.4 L488.7,368.4 L489.3,369.5 L489.7,370.6 L490.4,371.7 L490.7,372.7 L490.9,373.8 L494.1,373.2 L495.1,373.1 L495.4,374.4 L496.0,376.0 L496.6,376.9 L497.6,377.9 L498.5,378.9 L499.2,379.8 L500.4,381.4 L501.0,382.7 L501.5,383.9 L503.2,383.7 L504.5,382.9 L505.9,381.1 L506.9,379.9 L508.1,378.4 L508.9,377.5 L509.9,376.5 L511.2,375.2 L511.9,374.4 L513.0,373.3 L513.8,372.5 L514.5,371.0 L515.1,369.5 L515.6,368.5 L516.1,367.3 L516.7,366.0 L518.3,365.4 L519.7,365.1 L521.0,365.3 L522.5,365.0 L523.4,364.3 L525.3,364.3 L526.4,364.5 L529.0,364.0 L530.1,363.5 L531.6,362.1 L532.6,361.8 L533.7,361.1 L535.0,360.8 L536.3,360.5 L538.1,359.8 L539.8,359.7 L540.9,359.6 L541.8,359.0 L542.8,357.9 L543.8,357.3 L544.6,356.2 L545.4,355.2 L546.0,354.1 L546.3,352.9 L546.7,351.3 L546.4,349.6 L546.2,348.3 L545.9,347.3 L546.0,346.3 L546.0,344.6 L545.9,343.6 L545.7,341.8 L545.9,340.1 L546.0,339.0 L546.3,337.8 L546.7,336.6 L544.6,335.4 L544.4,334.4 L543.9,333.4 L542.4,332.4 L541.0,331.2 L539.7,330.3 L538.3,328.6 L536.9,327.1 L535.8,326.0 L534.6,325.0 L533.6,324.4 L532.1,323.8 L530.8,323.3 L529.8,322.7 L528.8,321.4 L527.4,321.6 L525.3,319.0 L523.5,317.1 L522.2,315.8 L520.5,314.2 L512.4,311.4 L505.8,312.2 L501.2,307.9 L497.0,302.2 L495.6,296.5 Z" class="district" data-name="East" tabindex="0" role="button" aria-label="East district"></path>
+            <path d="M143.0,280.2 L141.6,280.3 L140.1,280.5 L138.9,280.8 L137.8,281.3 L136.9,281.8 L135.7,282.1 L134.4,282.2 L132.3,282.3 L131.1,282.5 L129.0,282.7 L128.1,283.6 L127.2,284.7 L126.8,285.9 L126.6,287.5 L126.4,288.5 L125.7,290.3 L125.1,291.7 L124.2,293.4 L123.6,294.2 L122.9,295.0 L122.3,296.2 L121.6,297.7 L121.1,298.6 L120.4,299.6 L119.7,301.0 L119.0,302.1 L118.4,303.1 L119.1,304.1 L120.1,304.9 L121.7,306.8 L122.8,308.6 L123.7,310.2 L124.3,311.3 L125.1,312.0 L126.6,313.6 L128.0,315.3 L130.1,317.6 L131.8,319.2 L133.6,320.7 L137.9,322.8 L139.0,323.1 L138.6,324.2 L138.1,326.0 L137.8,327.1 L137.6,328.1 L137.3,329.1 L136.4,330.3 L135.9,331.2 L135.1,331.9 L134.0,333.3 L133.1,334.7 L130.9,336.7 L130.3,337.5 L129.4,339.3 L128.8,340.3 L127.6,339.8 L126.8,339.1 L125.2,337.8 L123.7,336.6 L122.1,335.4 L120.8,334.2 L119.9,333.3 L119.4,332.4 L118.9,330.9 L118.3,330.0 L117.7,329.1 L116.5,327.9 L115.3,326.6 L114.2,325.4 L113.3,324.9 L112.3,324.6 L110.8,324.3 L109.6,324.2 L108.2,324.0 L106.8,324.4 L105.7,325.6 L104.4,327.0 L103.0,328.4 L101.4,330.2 L100.4,331.6 L99.7,332.7 L99.3,333.8 L98.1,333.2 L97.2,332.5 L95.9,331.8 L95.0,331.1 L93.8,330.4 L92.7,329.9 L91.3,328.9 L90.0,327.6 L88.5,326.5 L87.0,325.5 L86.1,325.0 L84.8,324.7 L83.6,324.7 L82.3,324.2 L81.1,324.3 L80.1,324.8 L78.9,326.0 L78.1,327.2 L77.4,328.3 L76.7,330.1 L76.3,331.2 L75.7,332.4 L75.2,333.8 L74.5,335.1 L73.9,337.9 L72.8,342.3 L72.3,344.3 L71.6,346.1 L71.1,347.0 L70.2,348.9 L69.7,350.1 L69.3,351.4 L67.3,353.8 L66.0,355.3 L65.2,356.5 L64.0,358.2 L63.3,359.6 L62.9,361.2 L62.4,362.7 L62.2,364.8 L61.8,365.8 L60.8,369.1 L60.5,370.1 L60.0,371.2 L59.6,372.9 L58.8,374.6 L57.8,376.1 L56.9,376.9 L56.0,378.4 L55.1,378.9 L53.8,379.2 L52.1,379.4 L49.3,379.6 L48.3,379.3 L46.5,379.2 L43.8,379.3 L42.0,379.3 L40.6,379.5 L39.2,379.8 L38.2,379.9 L36.5,380.0 L34.6,380.7 L32.8,381.5 L31.8,382.0 L30.8,382.1 L30.2,388.4 L30.0,393.0 L31.3,394.6 L32.0,395.8 L31.8,397.6 L32.3,399.3 L32.7,400.3 L33.0,401.7 L33.2,403.1 L33.5,404.1 L33.4,406.5 L33.2,407.6 L33.3,408.7 L33.5,412.1 L34.6,414.6 L36.4,417.9 L36.5,419.6 L37.3,420.3 L39.1,421.2 L41.9,421.9 L43.3,422.5 L46.0,423.3 L47.8,423.7 L50.4,424.7 L51.9,425.2 L53.5,425.9 L55.3,427.0 L56.5,428.0 L57.2,429.0 L57.8,430.6 L58.3,432.6 L58.9,434.3 L59.6,436.6 L60.6,438.4 L63.3,440.0 L65.1,440.5 L65.3,441.5 L64.8,442.4 L65.5,444.0 L65.8,445.3 L66.5,447.0 L67.6,448.3 L69.1,450.1 L71.1,451.2 L73.2,451.8 L75.0,452.3 L76.7,453.2 L79.4,454.6 L78.0,457.7 L77.3,459.4 L76.2,462.6 L74.6,465.3 L73.6,467.0 L73.3,468.0 L72.9,469.7 L72.6,470.8 L71.7,473.1 L74.3,475.1 L75.6,475.8 L76.6,476.3 L76.2,477.4 L77.7,477.2 L80.9,477.4 L82.3,477.5 L83.8,477.6 L86.8,473.3 L88.1,471.4 L88.8,470.6 L89.6,469.4 L90.8,468.5 L91.9,468.0 L93.4,467.7 L95.0,468.2 L96.4,466.6 L97.1,465.7 L98.6,464.2 L99.6,463.3 L100.8,462.5 L102.7,464.1 L103.9,464.4 L105.2,464.2 L108.6,465.8 L109.9,466.5 L110.9,467.4 L112.0,467.9 L113.5,470.0 L114.7,470.2 L116.9,469.2 L118.6,468.1 L119.5,467.2 L120.6,466.4 L121.7,466.9 L124.7,467.1 L126.6,467.2 L127.6,467.6 L130.7,469.7 L132.8,471.5 L133.7,472.1 L134.6,472.8 L135.5,473.3 L137.5,473.8 L139.5,473.9 L142.7,473.9 L145.7,473.7 L147.9,472.9 L150.1,471.4 L152.8,469.2 L154.7,467.7 L159.2,463.9 L161.7,462.7 L163.5,461.9 L165.2,460.8 L167.6,458.9 L170.5,456.7 L171.7,455.1 L172.8,453.7 L174.5,455.3 L176.0,456.7 L177.0,458.1 L178.3,459.0 L180.5,460.2 L182.8,461.4 L184.9,462.6 L187.3,461.1 L189.1,458.8 L190.4,458.8 L191.5,456.0 L192.4,455.5 L194.3,456.7 L196.2,457.8 L197.7,458.1 L199.6,459.1 L201.1,459.9 L202.4,460.3 L203.8,460.8 L205.1,461.2 L207.2,459.6 L208.9,457.8 L212.8,454.1 L212.4,452.9 L210.7,450.7 L208.1,449.9 L205.6,448.7 L201.4,445.8 L199.1,443.6 L197.2,442.1 L196.3,441.5 L195.7,440.2 L197.5,438.6 L199.9,433.8 L200.2,431.6 L201.3,431.1 L202.1,430.3 L203.5,431.0 L204.7,431.8 L205.7,431.5 L207.0,431.7 L208.1,431.7 L209.2,431.3 L210.1,432.0 L211.3,432.6 L212.4,433.0 L213.1,434.1 L213.7,435.2 L214.9,436.0 L217.7,437.9 L219.0,439.1 L219.9,440.0 L221.4,440.6 L222.4,440.8 L223.4,441.0 L224.8,441.4 L226.0,441.6 L227.4,441.9 L228.4,442.3 L229.5,443.1 L231.6,444.2 L233.4,445.4 L237.1,447.8 L238.8,449.0 L239.9,449.6 L240.5,451.4 L241.4,452.1 L242.6,452.8 L243.9,453.5 L244.9,454.2 L243.1,459.2 L244.6,459.4 L246.0,459.9 L248.0,460.5 L250.8,461.7 L252.3,462.3 L253.3,462.7 L256.8,464.2 L257.9,464.4 L259.2,464.2 L260.9,463.9 L262.0,463.9 L264.4,464.4 L264.7,463.4 L265.4,462.5 L266.0,461.6 L267.5,459.7 L268.3,458.5 L268.8,457.4 L269.3,456.0 L269.4,454.9 L271.3,456.3 L272.2,456.8 L273.7,457.1 L274.8,457.2 L277.8,457.5 L279.5,458.2 L280.8,458.7 L282.4,459.3 L284.0,459.8 L285.4,460.3 L286.5,460.7 L287.7,461.1 L288.9,461.6 L290.0,461.9 L291.0,462.0 L292.4,462.5 L294.0,463.5 L296.5,465.2 L299.8,458.7 L281.7,441.8 L284.7,434.2 L273.5,431.2 L273.0,430.0 L266.7,427.7 L266.2,422.3 L252.6,414.0 L246.8,408.9 L255.3,394.8 L261.2,396.1 L266.2,390.0 L270.8,391.3 L277.9,394.0 L292.6,373.9 L293.2,370.2 L294.6,369.9 L299.7,362.7 L297.5,361.6 L297.6,360.3 L296.4,358.6 L300.8,352.2 L303.3,346.0 L301.9,346.8 L296.6,344.1 L293.4,342.4 L290.2,341.6 L288.4,341.1 L287.1,340.6 L286.3,341.4 L285.2,341.8 L284.2,342.2 L283.5,343.1 L282.5,343.7 L281.5,344.6 L280.5,345.4 L279.1,345.5 L278.1,346.1 L277.4,347.4 L276.4,347.3 L275.4,346.8 L273.7,345.5 L272.7,344.8 L271.1,343.8 L269.9,342.9 L268.4,341.8 L265.9,339.8 L265.0,339.3 L263.8,338.7 L262.5,338.3 L260.6,337.0 L259.1,338.9 L257.9,340.5 L256.0,341.3 L254.1,341.3 L251.7,340.7 L249.8,340.3 L248.6,342.1 L248.9,343.1 L249.5,344.1 L250.5,346.1 L251.0,347.1 L251.6,348.0 L251.1,349.8 L250.3,350.7 L249.9,351.8 L249.0,353.0 L250.1,354.3 L251.1,355.6 L252.5,356.6 L253.5,357.8 L254.5,358.5 L256.5,359.5 L257.3,360.5 L258.8,362.1 L258.2,363.1 L256.6,363.5 L255.8,362.6 L255.3,363.7 L253.4,365.3 L252.1,366.1 L249.7,365.6 L248.4,364.9 L246.7,363.4 L245.5,362.5 L243.5,361.5 L242.1,360.8 L240.1,359.9 L237.8,359.0 L236.8,358.6 L235.1,357.8 L233.9,357.3 L232.5,357.0 L232.1,355.8 L231.5,354.4 L231.1,353.0 L230.3,350.9 L230.1,349.3 L229.6,348.2 L229.2,346.3 L229.1,344.9 L229.5,343.6 L230.9,343.5 L230.5,342.5 L229.1,341.4 L228.1,340.6 L227.0,339.9 L225.2,339.0 L224.1,338.5 L222.9,338.4 L221.6,337.9 L219.9,337.4 L218.4,337.2 L218.6,334.9 L218.4,332.9 L218.2,331.9 L217.9,330.9 L216.1,330.7 L214.9,330.4 L213.8,330.0 L212.3,329.9 L211.0,330.5 L210.2,331.5 L208.9,332.0 L207.5,332.1 L205.9,332.2 L204.8,332.3 L203.3,333.5 L202.1,333.7 L200.1,332.8 L200.5,331.4 L201.7,330.0 L202.2,329.1 L201.7,328.2 L200.6,325.6 L200.3,324.6 L200.3,323.5 L199.8,322.0 L199.6,321.0 L198.3,318.1 L197.8,316.9 L197.6,315.9 L197.2,314.5 L196.9,312.5 L196.3,310.8 L195.6,309.3 L195.1,307.9 L195.0,306.6 L195.0,303.7 L195.9,302.9 L197.5,301.7 L196.0,300.9 L194.8,300.3 L193.9,299.7 L192.8,299.3 L191.5,298.9 L190.4,297.9 L189.2,296.8 L187.8,295.9 L188.0,294.7 L188.2,293.5 L187.0,293.0 L185.9,292.3 L183.7,290.6 L182.5,292.1 L181.5,293.0 L179.7,294.1 L178.0,295.0 L176.7,296.1 L175.8,296.8 L174.4,298.2 L173.5,296.5 L172.8,295.5 L171.8,294.9 L170.6,294.9 L169.2,295.0 L168.0,295.0 L166.6,294.3 L165.6,294.2 L164.5,293.7 L163.3,293.5 L162.3,293.2 L161.8,292.2 L160.5,291.6 L158.6,290.8 L157.5,290.3 L156.5,289.5 L154.6,288.0 L152.7,286.5 L151.7,285.7 L150.6,284.9 L149.4,284.2 L148.1,283.1 L146.2,280.5 L145.1,280.5 L143.9,280.5 L143.0,280.2 Z" class="district" data-name="South West" tabindex="0" role="button" aria-label="South West district"></path>
+            <path d="M410.4,142.3 L409.5,141.5 L408.3,142.2 L406.8,142.9 L405.1,143.8 L404.1,144.3 L403.2,144.8 L402.2,145.3 L400.8,145.9 L399.8,146.2 L398.6,146.8 L399.4,149.4 L397.7,151.3 L395.7,153.6 L394.2,155.0 L392.4,156.6 L391.0,157.8 L389.9,158.8 L387.5,161.0 L386.4,161.6 L385.3,162.0 L383.8,162.3 L381.9,162.6 L380.6,162.7 L379.2,162.7 L377.5,162.2 L375.3,161.5 L373.1,160.4 L371.9,159.6 L371.5,161.2 L371.4,162.3 L371.9,163.4 L371.8,164.4 L371.4,165.5 L372.0,166.8 L373.2,167.6 L374.2,168.0 L374.8,169.1 L375.1,170.5 L375.1,171.8 L374.6,173.2 L374.2,174.2 L375.1,175.5 L376.2,176.2 L377.2,176.7 L378.3,176.8 L379.4,176.8 L379.3,178.8 L378.8,180.1 L380.0,180.8 L381.3,180.9 L382.1,181.5 L382.9,182.9 L382.8,185.2 L381.7,185.6 L380.2,186.0 L379.0,186.6 L378.2,187.2 L377.5,188.0 L376.8,188.9 L375.5,190.8 L375.5,191.9 L374.9,192.8 L375.1,193.8 L375.4,195.0 L375.6,196.0 L375.9,197.2 L376.5,198.3 L377.6,199.7 L378.7,200.8 L379.7,201.6 L380.8,202.5 L381.6,203.1 L382.8,203.8 L383.6,204.4 L384.2,205.6 L384.9,206.8 L385.9,207.7 L387.2,208.2 L388.6,208.3 L389.8,208.9 L390.3,209.8 L390.9,211.7 L391.2,212.7 L392.6,215.0 L393.9,215.1 L394.5,213.7 L395.1,212.8 L396.1,211.7 L398.1,212.0 L399.7,212.1 L401.2,212.3 L402.2,212.4 L404.1,212.7 L405.1,212.8 L406.8,213.2 L408.3,213.3 L409.4,213.4 L410.8,213.2 L413.2,213.3 L414.4,213.4 L415.8,213.7 L416.2,214.7 L416.2,215.8 L416.2,217.0 L416.2,218.3 L416.8,219.7 L417.6,220.7 L418.7,221.5 L419.5,223.4 L420.1,224.4 L421.6,226.2 L417.5,236.5 L417.2,237.5 L414.5,241.7 L413.7,242.5 L411.8,244.5 L410.6,246.4 L407.8,251.2 L406.7,253.1 L404.5,255.4 L399.2,260.5 L396.8,262.9 L395.8,261.3 L392.6,256.0 L389.1,259.1 L385.1,261.3 L382.0,262.9 L384.2,265.6 L377.8,267.1 L377.0,272.1 L374.0,278.3 L373.0,278.1 L372.0,277.7 L371.1,277.2 L369.7,276.9 L366.0,279.0 L366.7,279.8 L369.9,280.0 L370.3,281.0 L372.0,283.2 L371.0,284.7 L369.8,290.0 L369.4,291.1 L367.7,293.0 L366.7,294.5 L366.2,295.4 L367.6,295.9 L368.0,297.4 L368.2,299.2 L370.6,299.9 L372.0,299.4 L373.4,299.5 L374.5,299.3 L377.0,298.6 L378.5,301.4 L378.8,302.4 L378.8,305.0 L377.0,307.6 L374.9,311.8 L374.3,313.0 L374.0,314.6 L374.2,315.6 L374.5,316.6 L374.4,317.7 L374.2,319.5 L374.0,321.4 L373.9,322.6 L374.9,324.2 L375.3,326.1 L375.5,327.9 L376.3,329.6 L377.2,330.9 L377.9,331.8 L378.8,332.4 L380.5,334.0 L382.4,332.6 L384.0,331.3 L385.2,330.1 L385.9,329.3 L387.3,327.5 L388.0,326.1 L388.7,324.4 L389.6,322.2 L391.5,319.8 L392.1,319.0 L394.0,316.6 L395.6,313.8 L397.2,310.3 L397.7,308.5 L403.4,311.4 L417.9,321.5 L418.9,320.5 L420.0,320.1 L421.0,320.0 L422.1,320.2 L423.5,319.1 L424.5,320.7 L427.3,322.4 L433.6,325.7 L434.5,326.2 L436.4,327.4 L439.2,329.1 L440.5,330.0 L444.2,332.4 L445.4,333.8 L446.1,334.8 L447.2,336.4 L447.9,337.5 L448.4,338.7 L448.7,339.8 L448.9,340.8 L449.2,341.9 L449.5,342.9 L449.9,343.9 L450.3,345.0 L451.5,346.1 L453.1,346.5 L454.6,346.2 L457.4,345.8 L461.4,344.9 L461.1,343.6 L460.9,342.0 L460.7,340.3 L460.5,339.1 L459.9,337.6 L459.3,336.0 L459.2,334.7 L459.6,333.3 L459.7,332.0 L460.3,331.1 L461.2,329.6 L460.5,328.1 L460.7,326.0 L461.1,325.0 L461.7,324.1 L462.9,323.3 L463.8,321.7 L464.3,320.8 L464.8,319.5 L465.4,318.0 L465.4,316.0 L465.6,314.9 L466.2,314.0 L466.6,312.7 L466.5,311.7 L467.4,311.0 L468.5,310.7 L468.7,309.7 L468.9,308.7 L468.8,307.1 L468.2,305.7 L468.2,304.5 L467.7,302.9 L467.0,301.6 L466.5,300.2 L465.9,299.4 L465.1,298.2 L464.4,297.2 L465.9,296.2 L464.0,293.4 L462.4,290.9 L461.5,289.7 L460.5,288.7 L459.0,287.4 L457.8,286.8 L455.1,285.7 L450.6,283.0 L450.4,280.8 L450.4,275.6 L454.7,276.1 L454.6,272.9 L451.8,270.7 L450.6,270.4 L449.2,266.1 L448.8,263.9 L448.2,261.4 L447.3,256.5 L445.1,255.9 L441.7,255.1 L440.7,254.9 L435.3,247.7 L431.7,233.4 L431.1,230.9 L432.2,230.7 L433.6,231.1 L434.6,231.5 L435.8,231.8 L436.8,232.1 L438.9,232.8 L440.5,233.4 L448.2,237.6 L449.2,237.9 L450.9,238.4 L452.4,238.8 L453.3,236.2 L454.3,233.6 L454.6,232.6 L453.4,231.3 L451.5,229.7 L450.3,228.6 L448.9,227.4 L447.1,225.9 L445.9,224.8 L444.6,223.7 L443.4,223.2 L441.9,223.2 L440.6,223.1 L439.5,223.2 L440.2,221.9 L440.5,220.9 L441.0,219.6 L441.0,218.3 L440.3,217.1 L439.8,215.9 L438.7,215.6 L439.2,213.4 L439.8,211.0 L442.8,209.7 L443.1,207.2 L443.5,205.3 L442.5,204.7 L441.8,203.7 L441.7,202.7 L442.0,201.5 L442.5,200.6 L443.1,199.5 L443.5,198.5 L443.6,197.5 L443.3,196.2 L443.4,194.6 L443.1,193.6 L442.3,193.0 L440.7,192.1 L439.5,191.4 L438.0,190.8 L436.5,190.2 L434.9,189.5 L432.6,189.0 L431.4,188.6 L430.2,188.1 L429.1,187.8 L428.0,187.3 L426.4,186.7 L425.3,186.4 L424.1,185.8 L423.1,185.4 L423.0,183.2 L423.1,181.8 L423.1,180.1 L423.1,179.0 L423.2,177.3 L423.1,176.2 L422.3,174.7 L421.4,172.9 L420.7,171.7 L419.9,170.3 L419.4,168.3 L418.9,166.6 L419.5,164.8 L421.1,162.7 L423.1,162.5 L427.2,162.1 L430.5,161.8 L433.2,161.8 L433.4,160.8 L433.5,159.7 L433.2,158.7 L431.5,157.3 L429.8,156.5 L427.9,156.0 L426.5,155.0 L425.2,154.7 L422.9,154.3 L424.3,153.5 L430.6,149.9 L433.7,148.1 L434.6,147.6 L435.5,147.0 L434.6,146.4 L429.8,143.7 L428.1,144.0 L425.4,144.4 L422.8,144.7 L418.3,145.1 L416.1,145.3 L414.2,144.8 L412.7,143.9 L410.4,142.3 Z" class="district active" data-name="Central" tabindex="0" role="button" aria-label="Central district"></path>
+            <path d="M398.2,308.8 L397.4,309.6 L395.6,313.8 L394.4,315.9 L392.1,319.0 L391.5,319.8 L389.6,322.2 L388.8,324.3 L388.0,326.1 L387.6,327.1 L386.0,329.2 L385.2,330.1 L384.1,331.2 L382.5,332.5 L380.6,333.9 L378.8,332.5 L377.9,331.8 L377.2,330.9 L376.5,330.1 L375.9,328.7 L375.3,327.0 L372.4,326.6 L367.4,327.8 L365.1,329.0 L364.3,327.9 L362.9,325.4 L361.2,323.1 L357.5,319.8 L352.5,315.5 L348.9,318.1 L346.2,314.7 L344.7,317.0 L339.5,315.1 L338.0,314.4 L335.1,313.7 L332.7,313.8 L330.1,314.6 L328.2,315.6 L323.8,316.2 L323.0,317.3 L322.7,318.6 L321.3,321.5 L320.1,323.2 L320.0,324.5 L320.3,326.4 L318.6,326.7 L316.7,329.0 L315.9,331.6 L315.1,334.3 L315.1,335.6 L314.0,337.7 L313.6,340.4 L311.9,341.1 L308.6,343.5 L305.0,345.2 L303.3,346.0 L300.8,352.2 L296.4,358.6 L297.6,360.3 L297.5,361.6 L299.7,362.7 L294.6,369.9 L293.2,370.2 L292.6,373.9 L277.9,394.0 L270.8,391.3 L266.2,390.0 L261.2,396.1 L255.3,394.8 L246.8,408.9 L252.6,414.0 L266.2,422.3 L266.7,427.7 L273.0,430.0 L273.5,431.2 L284.7,434.2 L281.7,441.8 L299.8,458.7 L296.5,465.2 L295.7,466.5 L295.1,467.6 L294.1,469.5 L294.3,470.9 L295.3,472.3 L296.1,473.0 L299.3,474.4 L301.3,475.2 L302.5,475.9 L303.4,476.7 L304.8,477.4 L306.0,477.9 L307.2,478.3 L308.1,478.8 L309.6,479.9 L311.5,480.6 L312.5,481.0 L313.5,481.5 L314.9,482.1 L316.0,482.3 L317.3,482.6 L318.5,482.9 L318.9,484.0 L318.5,485.8 L318.2,487.9 L317.7,489.8 L317.3,491.8 L318.8,492.2 L320.1,492.3 L321.1,492.2 L321.6,493.1 L322.6,493.2 L323.7,493.4 L324.7,493.7 L325.9,493.8 L327.6,493.4 L328.6,493.1 L329.6,492.9 L331.1,493.0 L332.1,493.3 L333.3,493.6 L334.3,493.9 L335.6,494.0 L337.4,494.7 L338.9,495.3 L339.9,495.9 L341.8,496.8 L342.9,497.2 L343.8,495.6 L344.0,494.5 L344.1,493.1 L344.4,491.9 L344.9,491.0 L345.5,490.0 L346.2,488.8 L346.8,487.8 L347.1,486.4 L347.7,485.0 L348.0,483.9 L348.3,482.4 L348.5,481.0 L348.9,480.0 L349.1,479.0 L347.9,478.8 L346.8,478.8 L345.7,479.5 L344.5,480.0 L342.4,481.5 L341.9,480.4 L340.9,479.2 L340.2,478.4 L339.4,477.4 L338.4,476.4 L337.1,475.2 L335.8,473.7 L335.2,472.7 L335.0,471.7 L334.3,470.8 L333.1,470.4 L332.0,470.1 L330.3,468.6 L329.4,467.8 L328.0,467.0 L328.2,465.9 L328.4,464.0 L328.6,462.9 L328.8,461.7 L329.0,460.3 L329.3,459.3 L329.7,458.2 L330.1,457.2 L331.1,455.6 L331.7,454.6 L332.3,453.8 L331.9,452.7 L331.0,452.0 L330.2,451.2 L330.6,450.2 L331.8,450.3 L334.8,450.8 L336.2,450.8 L337.8,451.1 L339.2,451.2 L340.6,451.0 L342.3,451.1 L344.2,451.0 L346.2,451.1 L347.6,451.4 L349.4,451.7 L351.0,452.1 L352.0,452.5 L353.0,453.0 L354.3,453.5 L355.4,453.7 L356.4,452.4 L357.4,451.2 L358.0,450.2 L358.8,449.0 L359.9,448.2 L360.9,448.3 L361.9,448.6 L364.1,446.4 L366.0,447.7 L368.1,449.1 L369.7,445.2 L371.0,440.8 L371.7,438.4 L372.1,437.1 L372.2,435.8 L370.9,433.4 L369.2,431.9 L365.2,431.6 L362.4,430.9 L360.2,429.5 L358.8,427.2 L359.4,426.0 L360.0,425.0 L360.6,424.0 L361.5,422.8 L362.2,422.0 L362.3,420.7 L362.7,419.7 L363.1,418.7 L363.9,417.9 L364.1,416.8 L364.4,415.7 L364.4,413.4 L365.3,411.5 L366.7,411.5 L367.3,410.1 L368.3,409.4 L369.0,408.1 L371.1,407.7 L373.3,408.0 L374.6,408.0 L375.7,408.0 L376.6,409.1 L377.8,408.9 L380.0,408.7 L381.1,408.5 L383.0,407.7 L383.9,406.7 L384.7,405.2 L386.7,404.7 L388.9,405.1 L390.5,404.6 L392.7,402.3 L395.1,400.3 L397.4,399.0 L398.6,397.5 L399.1,399.3 L399.4,400.5 L399.9,401.7 L400.1,404.2 L400.3,405.5 L402.2,405.8 L404.1,404.9 L406.5,406.0 L406.7,401.8 L407.5,398.3 L408.4,394.5 L409.5,389.4 L410.9,384.9 L411.7,382.6 L411.9,380.9 L412.1,378.5 L412.4,375.7 L412.9,374.1 L415.6,373.7 L416.8,373.6 L420.2,373.1 L422.4,372.8 L424.9,372.4 L426.8,372.1 L427.9,372.0 L430.0,371.7 L431.0,371.6 L432.2,371.4 L434.5,371.1 L435.7,370.9 L434.8,369.5 L433.8,368.0 L433.5,366.3 L433.5,364.8 L433.6,362.2 L433.7,359.6 L434.6,357.9 L437.2,356.0 L439.4,354.5 L440.8,353.6 L441.9,352.9 L443.0,352.1 L444.5,353.7 L445.7,355.0 L447.0,354.8 L448.1,354.4 L449.4,354.1 L450.4,353.9 L452.1,353.8 L458.6,352.8 L458.0,351.3 L457.7,350.3 L457.6,349.1 L457.7,347.3 L457.6,346.0 L454.6,346.2 L453.4,346.5 L452.4,346.4 L450.8,345.7 L450.0,344.2 L449.6,343.1 L449.3,342.1 L448.9,340.9 L448.7,339.8 L448.4,338.7 L448.0,337.7 L447.5,336.8 L446.1,334.8 L445.4,333.8 L444.6,332.9 L440.9,330.2 L439.2,329.1 L437.2,327.8 L434.5,326.2 L433.6,325.7 L427.3,322.4 L424.5,320.7 L423.5,319.1 L422.6,320.5 L421.5,320.0 L420.0,320.1 L418.9,320.5 L418.0,321.5 L404.0,312.1 L398.2,308.8 Z" class="district" data-name="New Delhi" tabindex="0" role="button" aria-label="New Delhi district"></path>
+            <path d="M399.0,398.1 L398.9,396.9 L397.4,399.0 L395.1,400.3 L392.7,402.3 L390.5,404.6 L388.9,405.1 L386.7,404.7 L385.3,404.5 L383.9,406.7 L383.0,407.7 L381.8,408.6 L380.0,408.7 L378.6,409.0 L376.6,409.1 L376.5,407.9 L374.6,408.0 L373.3,408.0 L371.2,407.9 L369.7,407.7 L368.3,409.4 L367.3,410.1 L366.7,411.5 L365.3,411.5 L364.4,413.4 L364.4,415.1 L364.3,416.2 L364.2,417.3 L363.5,418.3 L362.8,419.2 L362.5,420.2 L362.2,421.5 L361.8,422.5 L360.9,423.5 L360.0,425.0 L359.4,426.0 L358.8,427.2 L360.2,429.5 L362.4,430.9 L365.2,431.6 L369.2,431.9 L370.9,433.4 L372.2,435.8 L372.1,437.1 L371.7,438.4 L371.0,440.8 L369.7,445.2 L368.4,449.3 L366.0,447.7 L364.1,446.4 L362.8,449.0 L360.9,448.3 L359.9,448.2 L358.8,449.0 L358.0,450.2 L357.4,451.2 L356.4,452.4 L355.7,453.4 L354.3,453.5 L353.0,453.0 L352.0,452.5 L351.0,452.1 L349.4,451.7 L348.4,451.6 L346.2,451.1 L345.1,451.0 L343.3,451.1 L341.5,451.1 L340.0,451.1 L338.3,451.2 L336.2,450.8 L334.8,450.8 L331.8,450.3 L330.8,450.2 L330.2,451.2 L331.0,452.0 L331.9,452.7 L332.4,453.6 L331.7,454.6 L331.1,455.6 L330.4,456.6 L329.9,457.7 L329.5,458.7 L329.1,459.9 L328.8,461.7 L328.6,462.9 L328.4,464.0 L328.3,465.0 L328.0,466.5 L328.6,467.4 L329.9,468.0 L331.5,469.7 L332.7,470.3 L333.8,470.6 L334.7,471.1 L335.2,472.7 L335.8,473.7 L336.5,474.6 L338.4,476.4 L339.4,477.4 L340.1,478.2 L340.9,479.2 L341.9,480.4 L342.4,481.5 L344.0,480.1 L345.1,479.7 L346.2,479.4 L347.2,478.8 L348.3,478.7 L349.2,479.2 L348.8,480.3 L348.4,481.5 L348.2,483.1 L347.9,484.3 L347.5,485.5 L347.1,487.1 L346.4,488.4 L345.8,489.4 L345.2,490.6 L344.5,491.4 L344.2,492.5 L344.0,493.6 L343.8,495.6 L343.4,497.4 L341.8,496.8 L339.9,495.9 L338.9,495.3 L337.4,494.7 L336.4,494.2 L335.2,494.0 L334.2,493.9 L332.8,493.6 L331.7,493.2 L330.5,493.0 L329.1,493.1 L327.6,493.4 L326.6,493.7 L325.6,493.8 L324.4,493.6 L323.3,493.3 L321.6,493.1 L321.1,492.2 L320.1,492.3 L318.8,492.2 L317.5,491.9 L316.4,494.0 L316.0,495.1 L315.3,496.2 L314.7,497.0 L314.0,498.1 L313.4,499.4 L312.9,501.1 L312.8,502.1 L312.6,503.8 L312.4,505.4 L312.2,506.9 L311.9,508.1 L311.7,509.5 L311.3,511.8 L309.5,512.0 L309.7,513.2 L310.9,515.0 L312.1,516.9 L312.7,517.9 L313.6,519.3 L314.5,520.6 L315.1,521.8 L315.8,522.6 L316.7,523.7 L317.9,524.8 L319.3,526.2 L320.3,527.1 L320.7,529.5 L321.0,531.6 L321.2,532.8 L321.4,534.4 L321.6,537.1 L321.9,538.6 L322.0,540.2 L322.2,542.2 L326.8,547.3 L329.7,548.0 L330.7,549.5 L334.6,550.7 L337.2,551.6 L339.6,552.4 L341.1,552.0 L343.4,551.9 L345.7,551.8 L346.8,551.8 L347.9,552.2 L349.5,553.5 L350.4,554.2 L350.9,555.1 L351.7,556.0 L352.6,556.6 L353.9,557.7 L355.9,558.8 L357.1,559.3 L358.6,560.0 L360.2,560.7 L361.1,561.2 L362.4,562.2 L363.1,563.1 L364.1,564.3 L364.9,565.0 L365.2,569.2 L365.2,571.8 L364.6,574.8 L364.4,577.9 L364.9,579.0 L366.1,579.7 L368.2,581.1 L369.1,582.3 L369.8,583.6 L370.7,584.6 L371.1,586.3 L371.2,588.1 L373.4,589.6 L374.4,590.0 L375.4,588.7 L376.3,588.1 L377.4,586.9 L379.1,586.0 L380.6,585.4 L382.1,584.9 L383.2,584.2 L384.0,583.6 L385.7,583.9 L387.0,584.7 L388.2,585.5 L389.3,586.2 L390.8,587.0 L391.9,586.1 L393.1,586.0 L394.2,585.7 L395.2,585.6 L396.4,585.6 L398.2,585.8 L399.5,585.8 L401.1,585.8 L403.3,585.4 L404.7,585.1 L406.1,584.7 L407.4,584.2 L408.9,584.0 L410.1,584.0 L411.1,583.9 L412.3,583.7 L413.9,583.2 L415.1,582.8 L416.3,582.4 L417.5,583.6 L418.5,583.3 L420.2,582.3 L421.7,581.5 L423.0,580.9 L424.4,580.8 L425.7,580.7 L427.1,580.3 L428.6,579.8 L429.8,579.2 L431.1,578.3 L432.3,577.4 L434.0,575.8 L435.0,574.7 L436.3,574.2 L437.7,573.4 L439.0,572.2 L439.9,571.1 L441.1,570.7 L442.2,570.5 L444.2,569.7 L445.3,569.2 L447.2,568.4 L448.9,568.1 L450.6,567.2 L451.6,566.2 L452.0,565.0 L452.4,563.6 L452.8,562.3 L453.2,561.0 L453.7,559.5 L454.0,558.4 L454.4,557.3 L452.4,557.0 L450.9,557.1 L450.9,556.0 L451.1,554.4 L451.4,553.2 L451.6,551.7 L451.5,550.5 L451.3,548.9 L451.3,547.0 L451.2,545.4 L451.1,544.2 L451.0,542.7 L450.9,541.6 L450.7,540.6 L450.0,538.6 L449.6,537.4 L448.9,535.8 L448.5,534.4 L447.9,533.0 L447.0,531.7 L446.1,530.8 L445.0,530.2 L443.5,529.8 L441.9,530.2 L440.6,530.6 L438.8,530.9 L436.9,531.3 L435.8,531.5 L435.0,529.3 L434.5,528.2 L436.0,518.9 L436.3,517.0 L437.0,512.3 L438.3,510.9 L439.7,509.3 L441.2,507.6 L442.4,506.2 L443.8,504.7 L444.9,503.3 L446.8,502.6 L447.9,502.1 L449.2,501.5 L450.7,500.8 L452.1,500.7 L453.2,500.3 L454.3,499.9 L455.6,499.3 L454.2,488.8 L451.4,486.4 L449.5,484.7 L446.6,473.9 L447.0,467.4 L447.4,464.5 L448.0,459.9 L448.6,453.2 L449.0,446.8 L436.7,438.7 L436.5,433.1 L436.4,424.9 L431.8,422.2 L431.3,416.3 L424.1,414.0 L426.1,408.5 L425.4,403.4 L420.6,403.0 L418.4,398.9 L412.4,403.8 L411.0,406.6 L409.1,409.3 L406.5,406.0 L404.8,404.3 L403.0,405.6 L401.1,405.5 L400.1,404.2 L399.9,401.7 L399.4,400.5 L399.1,399.3 L399.0,398.1 Z" class="district" data-name="South" tabindex="0" role="button" aria-label="South district"></path>
+            <path d="M523.8,229.6 L521.4,228.3 L520.2,229.7 L519.1,229.6 L518.0,229.7 L516.8,229.6 L514.8,229.4 L513.6,229.4 L512.4,229.5 L511.4,229.8 L510.4,229.7 L509.4,229.4 L508.4,229.8 L507.5,230.5 L506.7,231.3 L505.4,231.9 L503.2,232.9 L502.1,233.3 L501.9,234.7 L501.6,235.7 L501.1,236.8 L500.3,238.7 L499.8,239.6 L498.4,241.1 L497.9,244.4 L498.3,248.1 L498.3,250.8 L494.8,250.8 L489.0,247.4 L487.5,249.1 L486.0,247.4 L484.9,249.1 L478.8,248.6 L474.7,248.5 L474.1,250.6 L473.2,252.9 L472.3,257.1 L472.4,259.1 L469.8,267.0 L468.0,272.3 L466.9,273.4 L464.0,278.6 L462.8,277.8 L461.4,277.4 L454.7,276.1 L450.4,275.6 L450.4,280.8 L450.6,283.0 L455.1,285.7 L457.8,286.8 L459.0,287.4 L459.8,288.1 L461.5,289.7 L462.4,290.9 L464.0,293.4 L465.9,296.2 L464.4,297.2 L465.1,298.1 L465.5,299.1 L466.3,299.8 L466.9,301.3 L469.5,301.3 L491.5,292.4 L495.6,296.5 L497.0,302.2 L501.2,307.9 L505.8,312.2 L512.4,311.4 L519.8,313.5 L520.1,312.5 L520.7,310.8 L520.9,309.7 L521.3,308.4 L521.9,306.9 L523.2,302.9 L523.5,299.2 L523.6,296.9 L523.9,294.1 L524.1,293.0 L524.2,290.1 L524.3,288.8 L524.4,287.5 L525.1,285.5 L525.3,284.2 L526.2,283.4 L527.2,282.1 L527.5,281.1 L527.3,279.6 L527.1,278.6 L527.3,276.7 L527.5,275.2 L527.6,274.2 L527.3,272.6 L527.7,271.5 L529.3,270.8 L530.4,270.7 L532.5,270.6 L534.0,270.3 L534.6,269.3 L536.7,266.2 L536.3,265.1 L536.2,264.0 L535.8,262.7 L536.1,261.3 L535.3,259.9 L535.0,258.2 L534.7,257.2 L534.2,256.0 L533.1,254.7 L532.3,253.2 L531.3,252.1 L530.3,251.3 L529.2,250.0 L528.0,248.3 L527.3,247.2 L527.8,245.3 L528.5,244.4 L529.1,243.5 L529.2,242.5 L529.5,241.5 L529.6,239.9 L529.2,238.8 L528.4,237.6 L528.2,236.5 L529.2,234.4 L529.8,233.3 L530.9,232.7 L532.3,231.5 L533.7,230.5 L534.6,229.9 L533.6,229.5 L532.2,229.4 L531.1,229.1 L530.0,229.9 L529.0,229.6 L528.0,229.5 L526.8,229.6 L525.8,230.7 L524.0,229.7 L523.8,229.6 Z" class="district" data-name="Shahdara" tabindex="0" role="button" aria-label="Shahdara district"></path>
+            <path d="M443.6,352.8 L441.9,352.9 L440.8,353.6 L439.4,354.5 L437.2,356.0 L435.3,357.4 L433.3,358.7 L433.6,361.6 L433.5,364.8 L433.5,366.3 L433.5,367.4 L434.4,368.9 L435.7,370.9 L434.5,371.1 L432.2,371.4 L431.0,371.6 L430.0,371.7 L427.9,372.0 L426.8,372.1 L424.9,372.4 L422.4,372.8 L420.8,373.0 L417.3,373.5 L415.6,373.7 L413.7,374.0 L413.0,375.6 L412.1,378.5 L411.9,380.9 L411.7,382.6 L411.0,384.9 L409.5,389.4 L408.4,394.5 L407.5,398.3 L406.7,401.8 L406.5,406.0 L409.1,409.3 L411.0,406.6 L412.4,403.8 L418.4,398.9 L420.6,403.0 L425.4,403.4 L426.1,408.5 L424.1,414.0 L431.3,416.3 L431.8,422.2 L436.4,424.9 L436.5,433.1 L436.7,438.7 L449.0,446.8 L448.6,453.2 L448.0,459.9 L447.4,464.5 L447.0,467.4 L446.6,473.9 L449.5,484.7 L451.4,486.4 L454.2,488.8 L455.7,499.3 L456.8,498.9 L457.8,498.5 L458.9,498.0 L460.0,497.6 L461.4,497.1 L462.5,496.7 L463.6,496.3 L464.9,495.8 L466.8,495.2 L468.0,494.8 L469.4,494.6 L470.7,494.4 L471.8,494.2 L472.1,492.8 L473.4,490.9 L474.0,490.0 L475.0,489.0 L478.3,487.3 L479.1,486.4 L480.2,486.1 L481.5,485.7 L483.2,485.4 L484.5,485.2 L485.7,485.0 L487.3,484.5 L488.6,484.0 L489.8,483.2 L490.8,483.0 L492.0,483.1 L493.1,482.6 L494.1,482.8 L495.4,483.1 L496.8,483.3 L497.9,483.3 L498.9,483.7 L500.0,484.2 L501.1,485.0 L502.3,485.4 L503.6,485.4 L503.8,486.7 L503.7,488.5 L503.8,489.9 L504.5,490.7 L505.7,490.8 L507.4,490.9 L509.0,490.9 L510.4,491.5 L511.2,492.3 L512.4,493.1 L513.5,493.7 L516.5,496.8 L517.3,497.5 L518.5,497.0 L519.4,496.5 L520.2,495.5 L520.4,494.3 L522.0,493.3 L523.3,492.7 L525.0,492.4 L526.3,492.0 L528.2,491.1 L529.5,490.4 L530.7,490.1 L531.0,489.1 L532.6,486.4 L533.4,484.9 L534.1,483.7 L534.9,482.6 L535.5,481.6 L536.5,480.1 L537.3,479.1 L538.3,477.6 L539.0,476.5 L539.7,475.0 L540.0,473.9 L540.2,472.5 L541.5,471.4 L542.8,470.1 L544.1,468.7 L545.6,466.7 L546.6,466.2 L547.5,465.6 L548.5,464.2 L549.1,463.3 L549.9,461.9 L550.3,460.2 L550.8,459.3 L551.8,457.1 L551.9,455.7 L551.7,454.6 L550.0,453.8 L548.6,453.5 L547.6,453.3 L546.3,453.0 L545.3,452.7 L544.2,452.4 L542.5,451.9 L541.3,451.3 L540.0,450.4 L539.1,449.7 L538.0,448.9 L537.1,447.5 L536.6,446.1 L536.0,444.4 L535.3,443.2 L535.0,442.2 L534.1,440.8 L532.3,439.7 L531.1,439.5 L529.8,438.8 L528.5,437.8 L527.7,436.8 L526.9,435.8 L526.0,434.4 L525.6,433.4 L525.0,432.2 L524.6,430.8 L523.3,429.8 L522.5,429.0 L521.5,428.3 L520.0,427.5 L518.4,426.7 L517.1,426.1 L516.6,424.9 L515.8,424.2 L514.2,422.9 L512.8,421.8 L511.6,420.9 L509.8,419.5 L508.4,418.4 L507.4,417.6 L506.7,416.7 L506.3,415.6 L505.9,414.2 L505.3,412.5 L504.8,411.6 L504.2,410.4 L503.5,409.3 L503.2,408.1 L504.6,407.4 L504.4,405.3 L503.0,404.5 L501.6,403.5 L500.6,402.5 L500.1,401.5 L500.4,399.9 L500.7,398.7 L500.9,397.6 L501.3,396.2 L501.8,395.0 L502.2,393.6 L502.6,392.6 L503.1,390.8 L503.2,389.4 L502.9,388.4 L502.9,387.0 L502.2,385.8 L501.5,384.9 L501.2,383.1 L500.4,381.4 L499.6,380.2 L498.8,379.3 L498.2,378.4 L496.9,377.1 L496.0,376.2 L495.4,374.4 L495.1,373.1 L494.1,373.2 L491.0,374.1 L490.7,372.7 L490.4,371.7 L489.7,370.6 L489.3,369.5 L488.7,368.6 L489.3,367.8 L488.1,367.0 L488.2,366.0 L488.0,364.9 L487.3,364.1 L487.1,363.1 L486.1,363.0 L485.1,363.2 L484.2,362.4 L483.0,362.4 L482.2,361.6 L481.2,361.5 L480.1,361.3 L478.8,361.0 L477.8,360.8 L477.3,361.7 L476.5,362.3 L475.6,362.8 L474.9,363.7 L473.9,364.7 L473.0,365.3 L471.9,365.5 L470.8,365.5 L469.7,365.6 L468.6,366.9 L469.0,369.1 L469.3,371.1 L467.4,371.4 L466.7,370.1 L465.9,368.8 L465.0,367.0 L464.3,365.4 L463.7,363.3 L463.1,362.0 L462.5,360.6 L461.6,360.1 L461.4,358.9 L460.9,357.9 L460.2,355.9 L459.6,354.5 L458.6,352.8 L452.1,353.8 L450.4,353.9 L449.4,354.1 L448.1,354.4 L447.0,354.8 L446.0,355.2 L444.5,353.7 L443.6,352.8 Z" class="district" data-name="South East" tabindex="0" role="button" aria-label="South East district"></path>
+            <path d="M145.7,107.0 L144.7,106.9 L143.8,108.3 L142.9,109.4 L142.1,110.3 L141.8,111.5 L140.9,112.8 L140.6,114.0 L139.6,115.8 L139.8,116.8 L140.2,117.9 L140.2,119.0 L140.1,120.2 L139.5,121.6 L137.0,126.8 L135.9,129.8 L136.9,129.7 L138.0,129.7 L139.1,129.9 L140.1,130.4 L141.1,131.2 L142.9,133.1 L144.4,134.6 L146.3,136.7 L147.4,137.7 L148.0,138.8 L146.8,140.8 L146.1,141.7 L145.6,142.6 L145.1,143.9 L144.6,145.6 L144.2,146.8 L144.0,148.2 L144.1,149.5 L143.9,150.7 L143.7,152.8 L143.7,154.7 L144.2,156.6 L144.7,157.5 L145.9,159.4 L147.2,160.9 L148.9,163.3 L149.5,164.2 L150.0,166.1 L149.1,166.7 L148.2,167.7 L147.1,168.8 L146.4,169.6 L145.3,170.9 L144.4,171.4 L143.5,172.4 L142.9,173.4 L141.9,174.7 L140.6,176.3 L139.4,178.4 L138.9,179.7 L138.5,180.7 L138.4,181.7 L139.5,182.6 L141.2,183.7 L142.5,184.5 L143.6,185.4 L144.6,186.1 L145.5,187.2 L147.2,188.9 L148.6,190.2 L150.2,191.5 L151.6,193.2 L152.8,194.6 L152.4,195.8 L150.5,199.4 L150.1,200.4 L150.7,201.3 L152.0,202.5 L152.7,203.4 L153.2,204.3 L153.6,205.3 L154.1,206.3 L154.1,207.8 L153.9,208.9 L154.0,210.2 L153.5,211.4 L152.5,213.0 L151.4,214.8 L150.7,216.3 L149.3,218.5 L148.3,219.8 L146.9,221.4 L146.0,222.8 L145.4,223.7 L143.3,227.6 L142.3,229.6 L142.8,230.5 L144.9,232.4 L146.8,234.0 L148.3,234.9 L149.3,235.5 L150.1,236.2 L150.9,237.1 L152.6,238.2 L153.7,238.8 L154.5,239.4 L155.7,240.3 L158.0,242.1 L159.6,243.5 L160.4,244.2 L161.4,244.9 L162.4,245.5 L163.4,245.7 L164.6,244.6 L166.1,243.8 L167.0,243.2 L168.8,242.4 L169.3,243.3 L171.5,244.3 L171.1,245.5 L170.7,246.7 L171.1,247.8 L172.0,248.5 L173.2,249.5 L173.6,250.5 L175.2,252.4 L176.1,253.4 L176.7,254.4 L177.8,255.9 L179.3,257.3 L180.7,258.2 L182.1,259.5 L183.4,260.1 L184.7,261.3 L186.1,262.5 L188.5,264.6 L190.6,266.0 L191.7,266.5 L194.8,268.6 L195.9,269.1 L197.3,268.6 L198.2,267.7 L199.2,266.1 L199.9,265.1 L200.5,264.2 L201.2,263.4 L202.4,261.7 L203.2,260.9 L203.9,259.8 L204.9,258.5 L205.6,257.3 L206.0,256.0 L206.8,253.7 L207.6,251.8 L208.3,250.3 L212.0,250.4 L213.2,250.4 L214.3,250.4 L215.6,250.2 L216.6,250.1 L218.5,250.1 L219.8,249.9 L220.8,249.8 L221.8,249.6 L223.2,249.4 L224.3,249.2 L225.3,249.0 L226.6,248.7 L228.0,248.3 L229.7,247.9 L230.7,247.6 L231.7,247.3 L233.0,246.9 L234.1,246.7 L235.7,247.1 L237.1,247.6 L238.4,248.4 L239.3,249.1 L240.3,249.7 L241.3,250.4 L241.9,251.6 L242.2,252.8 L242.8,253.7 L243.1,254.8 L244.1,256.3 L244.8,257.6 L245.4,258.6 L246.2,259.4 L247.8,261.2 L248.4,262.0 L249.1,262.9 L249.8,263.7 L250.8,264.2 L251.4,263.3 L252.1,262.4 L252.7,260.6 L254.3,259.5 L255.3,258.3 L256.7,257.5 L258.0,256.7 L259.1,256.1 L260.5,255.1 L261.5,254.2 L262.4,255.0 L263.6,256.2 L270.6,261.1 L271.1,262.2 L272.0,263.6 L273.3,264.7 L274.9,264.5 L275.8,264.0 L279.7,260.6 L280.2,259.7 L280.7,258.8 L281.7,258.4 L282.7,258.0 L285.4,257.8 L286.6,258.7 L287.8,259.5 L288.9,260.0 L290.1,261.2 L290.8,259.7 L291.6,258.9 L292.8,257.7 L294.4,257.7 L295.7,257.3 L299.9,260.5 L301.6,262.7 L305.8,258.2 L306.7,258.8 L312.2,264.3 L316.7,259.7 L317.7,256.8 L319.7,256.3 L323.1,251.8 L325.2,247.4 L327.2,247.7 L328.2,247.9 L330.5,248.3 L331.5,248.4 L332.5,248.5 L334.2,249.0 L334.0,250.8 L333.5,252.2 L332.8,253.7 L332.4,254.8 L332.3,256.5 L332.5,257.5 L332.3,259.3 L332.2,260.5 L332.3,262.3 L331.9,263.4 L331.7,265.6 L331.0,266.5 L330.9,267.9 L329.4,268.3 L329.4,270.3 L331.4,271.5 L334.2,274.8 L338.3,278.5 L341.6,279.1 L346.3,280.5 L347.7,280.8 L348.6,276.5 L357.4,277.4 L360.9,275.8 L362.2,276.8 L361.1,278.3 L365.8,280.5 L372.0,283.2 L370.3,281.0 L369.9,280.0 L367.5,280.3 L366.2,279.5 L369.1,277.0 L370.3,276.9 L372.0,277.7 L373.0,278.1 L374.0,278.3 L377.0,272.1 L377.8,267.1 L384.2,265.6 L382.7,263.5 L385.1,261.3 L389.1,259.1 L392.6,256.0 L390.6,253.8 L387.7,253.3 L385.8,252.3 L386.1,250.6 L385.5,249.1 L383.4,250.2 L381.4,248.4 L378.4,246.2 L376.8,244.1 L378.4,243.1 L378.5,241.7 L377.3,241.5 L375.3,242.6 L372.9,241.7 L371.6,243.8 L365.3,242.6 L357.7,238.0 L360.0,234.9 L359.1,233.7 L358.9,230.4 L360.2,228.8 L360.6,226.4 L360.0,222.8 L357.9,221.3 L361.0,212.4 L360.2,210.4 L357.7,204.8 L350.1,212.6 L342.9,209.5 L339.5,211.9 L336.4,218.8 L330.7,222.6 L328.0,228.0 L328.4,230.2 L327.4,232.0 L322.1,235.7 L318.0,233.5 L317.1,227.1 L316.1,220.6 L313.2,215.9 L309.6,208.8 L306.7,203.0 L306.1,200.6 L297.7,199.0 L293.4,197.3 L291.7,199.7 L286.8,199.5 L283.6,202.4 L278.8,210.0 L275.7,208.2 L272.8,206.1 L270.0,203.6 L264.6,200.0 L261.7,198.5 L260.7,197.4 L256.8,194.3 L250.4,193.2 L247.3,192.5 L243.0,190.3 L233.3,185.3 L224.5,184.1 L221.7,183.5 L212.5,178.6 L210.5,171.9 L208.8,168.1 L209.6,163.0 L209.7,157.6 L210.7,150.7 L194.9,144.3 L187.5,143.4 L182.0,137.6 L178.3,134.7 L174.4,134.9 L163.8,128.5 L164.2,126.5 L162.5,125.2 L162.9,122.5 L165.2,118.0 L162.7,116.0 L163.5,113.8 L161.7,112.9 L156.1,110.4 L155.1,110.3 L154.1,110.2 L152.4,109.4 L151.2,108.6 L149.8,108.1 L147.5,107.5 L146.5,107.1 L145.7,107.0 Z" class="district" data-name="North West" tabindex="0" role="button" aria-label="North West district"></path>
+            </svg>
+            <div class="map-canvas-bottom">
+              <span><i></i> SELECTED DISTRICT</span>
+              <span>BOUNDARIES: 2011 DISTRICT DATA</span>
+            </div>
+          </div>
+          <aside class="district-panel">
+            <div class="panel-top">
+              <span>EXPLORE THE DISTRICTS</span>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="3"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>
+            </div>
+            <div class="panel-number" id="panel-number">DELHI &nbsp; / &nbsp; 06</div>
+            <h3 id="panel-title">Central <span>Delhi</span></h3>
+            <p class="panel-tagline" id="panel-tagline">The old soul of the city</p>
+            <div class="panel-rule"></div>
+            <div id="accordion-container">
+
+          <div class="accordion" data-accordion="Known for">
+            <button type="button" aria-expanded="true">
+              <span>Known for</span>
+              <span class="chevron-wrap rotated"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6"/></svg></span>
+            </button>
+            <div class="accordion-content" style="">
+              <p>Shahjahanabad, Jama Masjid and the lanes of Old Delhi.</p>
+            </div>
+          </div>
+
+          <div class="accordion" data-accordion="Why visit">
+            <button type="button" aria-expanded="false">
+              <span>Why visit</span>
+              <span class="chevron-wrap "><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6"/></svg></span>
+            </button>
+            <div class="accordion-content" style="display: none;">
+              <p>Walk from the Red Fort through Chandni Chowk, where centuries of commerce and community meet.</p>
+            </div>
+          </div>
+
+          <div class="accordion" data-accordion="Local flavours">
+            <button type="button" aria-expanded="false">
+              <span>Local flavours</span>
+              <span class="chevron-wrap "><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6"/></svg></span>
+            </button>
+            <div class="accordion-content" style="display: none;">
+              <p>Bedmi puri, jalebi, kebabs and the legendary paranthe of Paranthe Wali Gali.</p>
+            </div>
+          </div>
+
+          <div class="accordion" data-accordion="Culture & heritage">
+            <button type="button" aria-expanded="false">
+              <span>Culture & heritage</span>
+              <span class="chevron-wrap "><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6"/></svg></span>
+            </button>
+            <div class="accordion-content" style="display: none;">
+              <p>Mughal architecture, Urdu poetry, traditional bazaars and the crafts of the old city.</p>
+            </div>
+          </div>
+            </div>
+            <div class="panel-note">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l2 -6l6 -2l-2 6l-6 2"/><circle cx="12" cy="12" r="9"/></svg>
+              <span>Hover over a district to preview it. Click to keep its story here.</span>
+            </div>
+          </aside>
+        </div>
+        <p class="map-source">District boundaries shown are based on 2011 administrative data and may not reflect recent changes.</p>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-ornament">✳</div>
+      <div class="eyebrow">UNTIL WE MEET IN DELHI</div>
+      <h2>There’s always more<br/><em>to the story.</em></h2>
+      <p>Come for the monuments. Stay for the moments.</p>
+      <a href="#top">BACK TO THE BEGINNING <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></a>
+    </section>
+
+    <footer>
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark">D<span>✳</span></span>
+        <span class="brand-name">DELHI<span> A LIVING HERITAGE</span></span>
+      </a>
+      <span>MADE FOR THE CURIOUS, WITH LOVE FOR DELHI.</span>
+      <span>दिल्ली दिल से &nbsp; ✳</span>
+    </footer>
+  </main>
+
+  <script>
+    const districtInfo = {"Central":{"tagline":"The old soul of the city","known":"Shahjahanabad, Jama Masjid and the lanes of Old Delhi.","visit":"Walk from the Red Fort through Chandni Chowk, where centuries of commerce and community meet.","food":"Bedmi puri, jalebi, kebabs and the legendary paranthe of Paranthe Wali Gali.","culture":"Mughal architecture, Urdu poetry, traditional bazaars and the crafts of the old city."},"New Delhi":{"tagline":"A capital of grand avenues","known":"India Gate, Kartavya Path and the civic heart of the capital.","visit":"Discover monumental avenues, museums and gardens shaped by the city's 20th-century history.","food":"A little of every India: chaat, street-side snacks and diverse regional kitchens.","culture":"Colonial-era architecture, national museums, public art and lively cultural institutions."},"South":{"tagline":"Where ancient meets contemporary","known":"Qutub Minar, Mehrauli and the green spaces of the southern ridge.","visit":"Explore the Qutub complex and Mehrauli Archaeological Park, where monuments span many dynasties.","food":"From bustling market cafés to kebabs, momos and regional Indian favourites.","culture":"Sultanate architecture, Sufi traditions, design studios and neighbourhood markets."},"South East":{"tagline":"Gardens, shrines and stories","known":"Humayun's Tomb, Nizamuddin and the Lotus Temple.","visit":"Trace the story of the Mughal garden tomb and listen to qawwali around the Nizamuddin shrine.","food":"Nihari, kebabs and sweets around Nizamuddin, alongside diverse modern kitchens.","culture":"Sufi music, Mughal gardens and living traditions around Hazrat Nizamuddin Auliya's dargah."},"South West":{"tagline":"A quieter side of Delhi","known":"Dwarka, Najafgarh and villages on Delhi's southwestern edge.","visit":"Experience neighbourhood markets, village histories and the wetlands around Najafgarh.","food":"North Indian comfort food, chaat and local market favourites.","culture":"Village traditions, seasonal celebrations and a fast-changing urban landscape."},"West":{"tagline":"Markets with a local heartbeat","known":"Rajouri Garden, Punjabi Bagh and busy neighbourhood bazaars.","visit":"Spend an evening exploring the shopping streets and food markets of west Delhi.","food":"Chole bhature, tandoori dishes, chaap and generous Punjabi flavours.","culture":"A strong Punjabi influence, community celebrations and energetic markets."},"North West":{"tagline":"Neighbourhoods and open skies","known":"Rohini, Pitampura and the historic settlements of northwest Delhi.","visit":"Find local markets, parks and glimpses of the city's rural past beyond its busy centre.","food":"Chaat, stuffed parathas and hearty North Indian street food.","culture":"Community festivals, neighbourhood bazaars and traditions rooted in old villages."},"North":{"tagline":"Of campus lanes and old ridges","known":"Delhi University's North Campus, Civil Lines and the Northern Ridge.","visit":"Wander the leafy campus and explore the historic ridge overlooking the old city.","food":"Student-friendly cafés, chaat, momos and the famous eateries of Hudson Lane.","culture":"University life, colonial-era landmarks and the natural heritage of the Delhi Ridge."},"North East":{"tagline":"A tapestry across the Yamuna","known":"Dense neighbourhoods and thriving local markets across the river.","visit":"Get to know the everyday rhythms and community markets of trans-Yamuna Delhi.","food":"Local chaat, kebabs, sweets and fresh street-side snacks.","culture":"A rich mix of communities, neighbourhood traditions and festive gatherings."},"East":{"tagline":"Life along the Yamuna","known":"Laxmi Nagar, Mayur Vihar and the eastern bank of the Yamuna.","visit":"Explore bustling markets and find a quieter moment in the green spaces near the river.","food":"Chaat, momos, mithai and a wide range of regional flavours.","culture":"Neighbourhood markets, riverside life and Delhi's many migrant communities."},"Shahdara":{"tagline":"An old gateway to the east","known":"Shahdara's historic markets and the old Grand Trunk Road.","visit":"Explore traditional bazaars and the neighbourhoods that grew around an old trading route.","food":"Bedmi puri, sweets, chaat and classic Delhi street food.","culture":"Old trading traditions, local crafts and the lively everyday life of the eastern city."}};
+    const districtList = ["North","North East","West","East","South West","Central","New Delhi","South","Shahdara","South East","North West"];
+
+    let selectedDistrict = "Central";
+    let hoveredDistrict = null;
+    let openAccordionTitle = "Known for";
+
+    const paths = document.querySelectorAll(".district");
+    const panelNumber = document.getElementById("panel-number");
+    const panelTitle = document.getElementById("panel-title");
+    const panelTagline = document.getElementById("panel-tagline");
+    const accordionContainer = document.getElementById("accordion-container");
+    const mapCanvas = document.getElementById("map-canvas");
+    const chevronSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6"/></svg>';
+
+    function updateActiveDistrict(name) {
+      const activeName = name || selectedDistrict;
+      const info = districtInfo[activeName];
+      if (!info) return;
+
+      paths.forEach(p => {
+        if (p.getAttribute("data-name") === activeName) {
+          p.classList.add("active");
+        } else {
+          p.classList.remove("active");
+        }
+      });
+
+      const idx = districtList.indexOf(activeName);
+      const numStr = String(idx >= 0 ? idx + 1 : 1).padStart(2, "0");
+      panelNumber.innerHTML = "DELHI &nbsp; / &nbsp; " + numStr;
+      panelTitle.innerHTML = activeName + ' <span>Delhi</span>';
+      panelTagline.textContent = info.tagline;
+
+      renderAccordion(info);
+    }
+
+    function renderAccordion(info) {
+      const sections = [
+        ["Known for", info.known],
+        ["Why visit", info.visit],
+        ["Local flavours", info.food],
+        ["Culture & heritage", info.culture]
+      ];
+
+      accordionContainer.innerHTML = sections.map(([title, text]) => {
+        const isOpen = openAccordionTitle === title;
+        return `
+          <div class="accordion" data-accordion="${title}">
+            <button type="button" aria-expanded="${isOpen}">
+              <span>${title}</span>
+              <span class="chevron-wrap ${isOpen ? "rotated" : ""}">${chevronSvg}</span>
+            </button>
+            <div class="accordion-content" style="${isOpen ? "" : "display: none;"}">
+              <p>${text}</p>
+            </div>
+          </div>`;
+      }).join("");
+
+      accordionContainer.querySelectorAll(".accordion button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const accTitle = btn.parentElement.getAttribute("data-accordion");
+          openAccordionTitle = (openAccordionTitle === accTitle) ? "" : accTitle;
+          const currentActive = hoveredDistrict || selectedDistrict;
+          renderAccordion(districtInfo[currentActive]);
+        });
+      });
+    }
+
+    paths.forEach(p => {
+      const name = p.getAttribute("data-name");
+      
+      p.addEventListener("mouseenter", () => {
+        hoveredDistrict = name;
+        updateActiveDistrict(name);
+      });
+      p.addEventListener("focus", () => {
+        hoveredDistrict = name;
+        updateActiveDistrict(name);
+      });
+      p.addEventListener("blur", () => {
+        hoveredDistrict = null;
+        updateActiveDistrict(selectedDistrict);
+      });
+
+      p.addEventListener("click", () => {
+        selectedDistrict = name;
+        hoveredDistrict = null;
+        openAccordionTitle = "Known for";
+        updateActiveDistrict(name);
+      });
+
+      p.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          selectedDistrict = name;
+          hoveredDistrict = null;
+          openAccordionTitle = "Known for";
+          updateActiveDistrict(name);
+        }
+      });
+    });
+
+    mapCanvas.addEventListener("mouseleave", () => {
+      hoveredDistrict = null;
+      updateActiveDistrict(selectedDistrict);
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const siteNav = document.getElementById("site-nav");
+    const menuIcon = document.getElementById("menu-icon");
+    let menuOpen = false;
+
+    const burgerSvg = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>';
+    const closeSvg = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>';
+
+    menuBtn.addEventListener("click", () => {
+      menuOpen = !menuOpen;
+      siteNav.classList.toggle("nav-open", menuOpen);
+      menuIcon.innerHTML = menuOpen ? closeSvg : burgerSvg;
+    });
+
+    siteNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        menuOpen = false;
+        siteNav.classList.remove("nav-open");
+        menuIcon.innerHTML = burgerSvg;
+      });
+    });
+
+    // Initial accordion setup
+    renderAccordion(districtInfo["Central"]);
+  </script>
+</body>
+</html>
